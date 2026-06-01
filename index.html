@@ -65,7 +65,13 @@ body{
 /* ---------- BACKGROUND (graphite, no stars) ---------- */
 #cosmos{display:none}
 .veil{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% -10%, #1B1D22, var(--bg-0) 60%);
+  background:
+    radial-gradient(ellipse 110% 45% at 12% 10%, rgba(31,58,95,.09), transparent 58%),
+    radial-gradient(ellipse 80% 35% at 82% 52%, rgba(200,169,106,.035), transparent 50%),
+    radial-gradient(ellipse 95% 50% at 35% 82%, rgba(31,58,95,.065), transparent 55%),
+    radial-gradient(ellipse 55% 28% at 68% 22%, rgba(70,50,110,.04), transparent 45%),
+    radial-gradient(ellipse 70% 40% at 50% 45%, rgba(31,58,95,.04), transparent 50%),
+    radial-gradient(120% 90% at 50% -10%, #1B1D22, var(--bg-0) 60%);
 }
 .content{position:relative;z-index:2}
 
@@ -120,8 +126,8 @@ header.scrolled{background:rgba(11,15,20,.72);backdrop-filter:blur(14px);border-
 /* фото Анны — справа, вписано в кадр */
 #heroPhoto{position:absolute;z-index:3;right:clamp(0px,3vw,70px);top:50%;transform:translateY(-50%);
   height:min(80vh,660px);width:auto;object-fit:contain;object-position:top;pointer-events:none;
-  -webkit-mask-image:radial-gradient(58% 72% at 50% 42%, #000 30%, rgba(0,0,0,.45) 58%, transparent 80%);
-          mask-image:radial-gradient(58% 72% at 50% 42%, #000 30%, rgba(0,0,0,.45) 58%, transparent 80%)}
+  -webkit-mask-image:radial-gradient(72% 88% at 50% 38%, #000 8%, rgba(0,0,0,.35) 35%, rgba(0,0,0,.10) 55%, transparent 72%);
+          mask-image:radial-gradient(72% 88% at 50% 38%, #000 8%, rgba(0,0,0,.35) 35%, rgba(0,0,0,.10) 55%, transparent 72%)}
 
 /* контент — заголовок-якорь слева, по центру по вертикали */
 .hero-inner{position:relative;z-index:3;width:100%;max-width:var(--maxw);margin:0 auto;
@@ -169,15 +175,29 @@ h2.sec{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,4vw,
 .reveal[data-d="1"]{transition-delay:.08s}.reveal[data-d="2"]{transition-delay:.16s}
 .reveal[data-d="3"]{transition-delay:.24s}.reveal[data-d="4"]{transition-delay:.32s}
 
+/* ---------- NEBULA BRIDGE (hero → authority transition) ---------- */
+.nebula-bridge{position:relative;z-index:1;height:0;pointer-events:none}
+.nebula-bridge::before{content:'';position:absolute;left:0;right:0;
+  top:-38vh;height:76vh;
+  background:var(--nebula) center 40% / clamp(480px,62vw,960px) auto no-repeat;
+  opacity:.6;mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(ellipse 58% 46% at 50% 50%, #000 8%, rgba(0,0,0,.35) 30%, transparent 64%);
+          mask-image:radial-gradient(ellipse 58% 46% at 50% 50%, #000 8%, rgba(0,0,0,.35) 30%, transparent 64%)}
+.nebula-bridge::after{content:'';position:absolute;left:0;right:0;
+  top:-30vh;height:60vh;
+  background:
+    radial-gradient(ellipse 50% 40% at 45% 45%, rgba(31,58,95,.12), transparent 65%),
+    radial-gradient(ellipse 40% 30% at 60% 50%, rgba(200,169,106,.06), transparent 55%);
+  pointer-events:none}
+
 /* ---------- AUTHORITY ---------- */
 .auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);margin-top:30px;align-items:start}
 .auth-left .sec{margin-bottom:20px}
-/* AUTHORITY: туманность-фон между блоками + контент на матовом стекле */
 #authority{position:relative;isolation:isolate}
 #authority::before{content:'';position:absolute;inset:0;z-index:-2;
-  background:var(--nebula) 76% 14% / 62% auto no-repeat;opacity:.95}
+  background:radial-gradient(ellipse 80% 55% at 50% 25%, rgba(31,58,95,.07), transparent 65%)}
 #authority::after{content:'';position:absolute;inset:0;z-index:-1;
-  background:radial-gradient(130% 100% at 50% 50%, rgba(19,20,23,.3), rgba(19,20,23,.72))}
+  background:radial-gradient(130% 100% at 50% 50%, rgba(19,20,23,.15), rgba(19,20,23,.55))}
 #authority .wrap{position:relative;padding:clamp(28px,4vw,56px);border-radius:18px;
   background:rgba(19,20,23,.42);
   -webkit-backdrop-filter:blur(16px) saturate(115%);backdrop-filter:blur(16px) saturate(115%);
@@ -451,27 +471,13 @@ h2.sec{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,4vw,
 /* ---------- FINAL CTA ---------- */
 .final{position:relative;overflow:hidden;padding-bottom:80px}
 .final .wrap{position:relative;z-index:2}
-/* космический фон — ~82% ширины по центру; края растворяются верхним радиальным градиентом фона (без mask) */
-.final-bg{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:82%;
-  z-index:0;pointer-events:none;opacity:.9;
+/* финальный фон — чистый тёмный с мягким свечением */
+.final-bg{position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(ellipse 60% 62% at 50% 50%, rgba(19,20,23,0) 36%, var(--bg-0) 86%),
-    var(--cta-space) 62% 66%/cover no-repeat}
+    radial-gradient(ellipse 70% 50% at 30% 50%, rgba(31,58,95,.08), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 70% 40%, rgba(200,169,106,.04), transparent 50%)}
 
-/* Планета — статичный фон справа, края растворены маской */
-.final-earth{position:absolute;right:-2%;top:50%;transform:translateY(-50%);
-  width:42%;max-height:120%;pointer-events:none;z-index:0;overflow:hidden}
-.final-earth img{width:100%;height:auto;display:block;
-  image-rendering:high-quality;-webkit-image-rendering:high-quality;
-  mask-image:radial-gradient(circle at 60% 50%, #000 30%, rgba(0,0,0,.6) 50%, transparent 66%);
-  -webkit-mask-image:radial-gradient(circle at 60% 50%, #000 30%, rgba(0,0,0,.6) 50%, transparent 66%)}
-/* вуаль фона по краям — добивает любые остаточные границы */
-.final-earth::after{content:'';position:absolute;inset:-2px;pointer-events:none;
-  background:
-    linear-gradient(to right, var(--bg-0) 0%, transparent 35%),
-    linear-gradient(to left, var(--bg-0) 0%, transparent 22%),
-    linear-gradient(to top, var(--bg-0) 0%, transparent 25%),
-    linear-gradient(to bottom, var(--bg-0) 0%, transparent 25%)}
+.final-earth{display:none}
 
 /* layout: текст + форма слева, планета сзади справа */
 .final-left{position:relative;z-index:2;max-width:640px}
@@ -480,15 +486,8 @@ h2.sec{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,4vw,
 .final-left p{color:var(--grey);font-size:clamp(15px,1.5vw,18px);max-width:48ch;margin:0 0 0}
 
 @media(max-width:980px){
-  /* секция не должна растягиваться из-за абсолютной планеты */
+  /* секция не должна растягиваться */
   .final{overflow:hidden}
-  /* планета — фон в верхней части, строго ограничена по высоте */
-  .final-earth{position:absolute;right:0;left:0;top:0;transform:none;
-    width:100%;height:48%;max-height:48%;z-index:0;overflow:hidden}
-  .final-earth img{width:100%;height:100%;object-fit:cover;object-position:center 30%;margin:0;
-    mask-image:radial-gradient(ellipse 80% 62% at 50% 42%, #000 16%, rgba(0,0,0,.5) 45%, transparent 74%);
-    -webkit-mask-image:radial-gradient(ellipse 80% 62% at 50% 42%, #000 16%, rgba(0,0,0,.5) 45%, transparent 74%)}
-  .final-earth::after{display:none}
   .final-left{max-width:100%;position:relative;z-index:2}
 }
 
@@ -591,10 +590,14 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(170,178,189,.12);
   .hero-lead-block{max-width:560px;margin:0 auto}
   .hero-lead{margin:0 auto}
   #heroPhoto{position:relative;order:2;top:auto;right:auto;left:auto;transform:none;
-    margin:26px auto 0;height:min(42vh,360px);opacity:1;z-index:2}
+    margin:26px auto 0;height:min(42vh,360px);opacity:1;z-index:2;
+    -webkit-mask-image:radial-gradient(70% 80% at 50% 35%, #000 10%, rgba(0,0,0,.25) 40%, transparent 68%);
+            mask-image:radial-gradient(70% 80% at 50% 35%, #000 10%, rgba(0,0,0,.25) 40%, transparent 68%)}
   #heroPlanet{width:120vw;top:-8vh;left:50%;transform:translateX(-50%);opacity:.9}
   .hero-cta{margin-top:28px}
   .scroll-hint{display:none}
+  .nebula-bridge::before{top:-24vh;height:48vh;
+    background-size:clamp(320px,85vw,500px) auto}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -679,6 +682,9 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(170,178,189,.12);
   </div>
   <div class="scroll-hint"><span>Листайте</span><span class="ln"></span></div>
 </section>
+
+<!-- Nebula transition between Hero and Authority -->
+<div class="nebula-bridge" aria-hidden="true"></div>
 
 <!-- ============ AUTHORITY ============ -->
 <section class="block" id="authority">

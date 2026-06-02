@@ -610,6 +610,69 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
   background:linear-gradient(90deg,transparent,rgba(200,169,106,.08) 40%,rgba(200,169,106,.08) 60%,transparent);
   pointer-events:none}
 
+/* ---------- SIGNATURE CASES ---------- */
+.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:46px}
+.case{position:relative;border:1px solid rgba(170,178,189,.14);border-radius:18px;overflow:hidden;
+  background:rgba(22,27,34,.42);display:flex;flex-direction:column;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+.case:hover{border-color:rgba(200,169,106,.32);box-shadow:0 30px 70px rgba(0,0,0,.42)}
+.case-media{position:relative;aspect-ratio:16/9;overflow:hidden;
+  background:
+    radial-gradient(120% 100% at 72% 18%, rgba(200,169,106,.12), transparent 55%),
+    radial-gradient(100% 100% at 18% 92%, rgba(31,58,95,.26), transparent 62%),
+    linear-gradient(135deg,#1B1F26,#0E1116)}
+.case-media::after{content:'A';position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-size:clamp(48px,7vw,84px);color:rgba(200,169,106,.12);pointer-events:none}
+.case-media img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .6s var(--ease)}
+.case:hover .case-media img{transform:scale(1.05)}
+.case-year{position:absolute;top:14px;right:16px;z-index:2;font-family:var(--font-display);
+  font-size:14px;color:var(--gold);letter-spacing:.04em;
+  background:rgba(11,15,20,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  padding:5px 13px;border-radius:20px;border:1px solid rgba(200,169,106,.25)}
+.case-body{padding:clamp(22px,2.4vw,32px)}
+.case-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px}
+.case-body h3{font-family:var(--font-display);font-size:clamp(20px,2vw,27px);font-weight:500;line-height:1.2;margin-bottom:12px}
+.case-body p{color:var(--grey);font-size:14px;line-height:1.6}
+@media(max-width:760px){.cases-grid{grid-template-columns:1fr}}
+
+/* ---------- CREDENTIALS STRIP (standards wordmarks) ---------- */
+.cred-strip{margin-top:32px;padding-top:26px;border-top:1px solid rgba(170,178,189,.12)}
+.cred-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);margin-bottom:18px;display:block}
+.cred-logos{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,38px);align-items:center}
+.cred-logos span{font-family:var(--font-display);font-weight:600;font-size:clamp(15px,1.6vw,22px);
+  letter-spacing:.02em;opacity:.82;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.cred-logos span:hover{opacity:1;transform:translateY(-2px)}
+.cl-1{color:var(--gold)}.cl-2{color:var(--gold-soft)}.cl-3{color:#7AADD4}
+.cl-4{color:var(--grey)}.cl-5{color:var(--white)}.cl-6{color:#9DBE8E}.cl-7{color:var(--gold)}
+
+/* ---------- PROJECT STATUS BADGE ---------- */
+.ocard-status{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.ocard-status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 10px var(--gold);animation:statusPulse 2.2s ease-in-out infinite}
+@keyframes statusPulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ---------- PRESS / СМИ cards ---------- */
+.press-item{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.press-link{margin-top:auto;padding-top:14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);display:inline-flex;align-items:center;gap:7px;transition:gap .3s var(--ease)}
+.press-item:hover .press-link{gap:13px}
+.press-headline{flex:none}
+.pl-komm{color:var(--gold-soft)}.pl-cre{color:#7AADD4}.pl-mp{color:var(--grey)}
+.pl-palgrave{color:var(--gold)}.pl-eco{color:#9DBE8E}
+
+/* ---------- JURY & COMMUNITIES ---------- */
+.jury-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(170,178,189,.12);
+  border:1px solid rgba(170,178,189,.12);border-radius:18px;overflow:hidden;margin-top:46px}
+.jury-cell{background:var(--bg-0);padding:30px 26px;transition:background .4s var(--ease)}
+.jury-cell:hover{background:var(--bg-1)}
+.jury-cell .jrole{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:12px}
+.jury-cell h4{font-family:var(--font-display);font-size:18px;font-weight:500;line-height:1.25}
+@media(max-width:900px){.jury-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.jury-grid{grid-template-columns:1fr}}
+
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:980px){
   .auth-grid{grid-template-columns:1fr;gap:34px}
@@ -727,6 +790,7 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
     <ul class="menu" id="menu">
       <li><a href="#idea">Идея</a></li>
       <li><a href="#products">Продукты</a></li>
+      <li><a href="#cases">Кейсы</a></li>
       <li><a href="#projects">Проекты</a></li>
       <li><a href="#media">Медиа</a></li>
       <li><a href="#books">Книги</a></li>
@@ -783,6 +847,18 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
           <li>Преподаватель Британской высшей школы дизайна</li>
           <li>Автор международных научных публикаций и книг издательства Palgrave Macmillan</li>
         </ul>
+      </div>
+    </div>
+    <div class="cred-strip reveal" data-d="2">
+      <span class="cred-label">Международные стандарты и квалификации</span>
+      <div class="cred-logos">
+        <span class="cl-1">LEED</span>
+        <span class="cl-2">BREEAM</span>
+        <span class="cl-3">WELL</span>
+        <span class="cl-4">Fitwel</span>
+        <span class="cl-5">GRI</span>
+        <span class="cl-6">GRESB</span>
+        <span class="cl-7">CLEVER</span>
       </div>
     </div>
   </div>
@@ -957,12 +1033,80 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
   </div>
 </section>
 
+<!-- ============ CASES ============ -->
+<section class="block" id="cases">
+  <div class="wrap">
+    <span class="eyebrow reveal">Знаковые кейсы</span>
+    <h2 class="sec reveal" data-d="1">Не теория. Реализованные проекты, которые изменили рынок</h2>
+    <p class="sec-lead reveal" data-d="1">От олимпийской инфраструктуры до национальных стандартов и глобальных исследований.</p>
+    <div class="cases-grid reveal" data-d="2">
+
+      <!-- ФОТО: положи файл assets/case-alfabank.jpg (формат 16:9). Без файла показывается космический фон. -->
+      <article class="case">
+        <div class="case-media">
+          <img src="assets/case-alfabank.jpg" alt="Офис Альфа-Банка" loading="lazy"
+               onerror="this.style.display='none'">
+          <span class="case-year">2021</span>
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Fitwel · Healthy Building</span>
+          <h3>Первый в России проект по стандарту Fitwel</h3>
+          <p>Офис Альфа-Банка — победитель международной премии Best in Building Health Winners, одно из самых здоровых офисных пространств в мире.</p>
+        </div>
+      </article>
+
+      <!-- ФОТО: assets/case-olympics.jpg -->
+      <article class="case">
+        <div class="case-media">
+          <img src="assets/case-olympics.jpg" alt="Олимпийская инфраструктура" loading="lazy"
+               onerror="this.style.display='none'">
+          <span class="case-year">2014 · 2018</span>
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Олимпийская инфраструктура</span>
+          <h3>Экосертификация олимпийских объектов</h3>
+          <p>Участие в международных проектах устойчивой сертификации инфраструктуры зимних Олимпийских игр в Сочи и Пхёнчхане.</p>
+        </div>
+      </article>
+
+      <!-- ФОТО: assets/case-clever.jpg -->
+      <article class="case">
+        <div class="case-media">
+          <img src="assets/case-clever.jpg" alt="Система сертификации CLEVER" loading="lazy"
+               onerror="this.style.display='none'">
+          <span class="case-year">2022</span>
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Национальный стандарт · ВЭБ.РФ</span>
+          <h3>Сооснователь национальной системы «Клевер»</h3>
+          <p>Российская система оценки устойчивых объектов недвижимости — национальный инструмент качества построенной среды.</p>
+        </div>
+      </article>
+
+      <!-- ФОТО: assets/case-foresight.jpg -->
+      <article class="case">
+        <div class="case-media">
+          <img src="assets/case-foresight.jpg" alt="Исследование The Future is Built 2050" loading="lazy"
+               onerror="this.style.display='none'">
+          <span class="case-year">2024–2025</span>
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Глобальное исследование · Foresight</span>
+          <h3>The Future is Built: Foresight 2050</h3>
+          <p>Первое в мире глобальное foresight-исследование трендов устойчивого строительства до 2050 года.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============ PROJECTS ============ -->
 <section class="block" id="projects">
   <div class="wrap">
-    <span class="eyebrow reveal">Проекты Анны</span>
+    <span class="eyebrow reveal">Проекты в разработке</span>
     <h2 class="sec reveal" data-d="1">Не просто анализировать будущее. Но и строить его</h2>
-    <p class="sec-lead reveal" data-d="1">Наведите на проект, чтобы раскрыть подробности.</p>
+    <p class="sec-lead reveal" data-d="1">Визионерские направления, которые Анна исследует и развивает сегодня. Наведите, чтобы раскрыть.</p>
 
     <div class="orbit-nav reveal" data-d="2">
       <div class="orbit-line">
@@ -976,16 +1120,11 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
               <stop offset="100%" stop-color="rgba(170,178,189,0)"/>
             </linearGradient>
           </defs>
-          <!-- дуга: начало слева-снизу, вершина по центру-сверху, конец справа-снизу -->
           <path d="M 0 5 Q 500 130 1000 5" fill="none" stroke="url(#orbitGrad)" stroke-width="1.2"/>
         </svg>
       </div>
       <div class="orbit-nodes">
-        <button class="onode active" data-proj="clever" aria-label="CLEVER">
-          <span class="odot"><span class="ocore"></span></span>
-          <span class="olabel">CLEVER</span>
-        </button>
-        <button class="onode" data-proj="orbital" aria-label="Orbital Green">
+        <button class="onode active" data-proj="orbital" aria-label="Orbital Green">
           <span class="odot"><span class="ocore"></span></span>
           <span class="olabel">Orbital<br>Green</span>
         </button>
@@ -997,18 +1136,10 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
     </div>
 
     <div class="orbit-stage">
-      <article class="ocard active" data-card="clever">
-        <div class="ocard-visual"><canvas data-orbit="clever"></canvas></div>
-        <div class="ocard-body">
-          <span class="ocard-tag">Недвижимость · ESG · Стандарты</span>
-          <h3>CLEVER</h3>
-          <p class="ocard-sub">Национальная система сертификации недвижимости</p>
-          <p>Сооснователь системы, созданной для устойчивой трансформации рынка недвижимости и новых стандартов среды.</p>
-        </div>
-      </article>
-      <article class="ocard" data-card="orbital">
+      <article class="ocard active" data-card="orbital">
         <div class="ocard-visual"><canvas data-orbit="orbital"></canvas></div>
         <div class="ocard-body">
+          <span class="ocard-status">В разработке</span>
           <span class="ocard-tag">SpaceTech · ESG · Энергетика</span>
           <h3>Orbital Green</h3>
           <p class="ocard-sub">Космическая энергетическая инфраструктура будущего</p>
@@ -1018,6 +1149,7 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
       <article class="ocard" data-card="meta">
         <div class="ocard-visual"><canvas data-orbit="meta"></canvas></div>
         <div class="ocard-body">
+          <span class="ocard-status">В разработке</span>
           <span class="ocard-tag">Девелопмент · Технологии · Города</span>
           <h3>Metabuild</h3>
           <p class="ocard-sub">Новая логика будущего строительства и городов</p>
@@ -1106,6 +1238,21 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
   </div>
 </section>
 
+<!-- ============ JURY & COMMUNITIES ============ -->
+<section class="block" id="jury">
+  <div class="wrap">
+    <span class="eyebrow reveal">Жюри и сообщества</span>
+    <h2 class="sec reveal" data-d="1">Признание профессионального сообщества</h2>
+    <p class="sec-lead reveal" data-d="1">Член жюри ведущих отраслевых премий в области устойчивого развития и недвижимости.</p>
+    <div class="jury-grid reveal" data-d="2">
+      <div class="jury-cell"><span class="jrole">Член жюри</span><h4>Green Property Awards</h4></div>
+      <div class="jury-cell"><span class="jrole">Член жюри</span><h4>CRE Moscow Awards</h4></div>
+      <div class="jury-cell"><span class="jrole">Член жюри</span><h4>Green Roof Challenge</h4></div>
+      <div class="jury-cell"><span class="jrole">Член жюри</span><h4>«Зелёный и здоровый офис»</h4></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ ANNA LIFE ============ -->
 <section class="life-section" id="life-1">
   <div class="life-bg" style="background-image:url('assets/anna-life-1.jpg')"></div>
@@ -1117,22 +1264,36 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
   <div class="wrap">
     <span class="eyebrow reveal">СМИ об Анне</span>
     <h2 class="sec reveal" data-d="1">Экспертиза, которую замечают</h2>
-    <p class="sec-lead reveal" data-d="1">Публикации и упоминания в ведущих изданиях — добавляются.</p>
+    <p class="sec-lead reveal" data-d="1">Публикации и упоминания в ведущих изданиях и научных площадках.</p>
     <div class="press-grid reveal" data-d="2">
-      <div class="press-item">
-        <div class="press-logo">Издание</div>
-        <p class="press-headline">Статья будет добавлена</p>
+      <a class="press-item" href="https://www.kommersant.ru/doc/7798132" target="_blank" rel="noopener">
+        <div class="press-logo pl-komm">Коммерсантъ</div>
+        <p class="press-headline">«Зелёный» люкс: новый критерий роскоши</p>
         <span class="press-date">2025</span>
-      </div>
-      <div class="press-item">
-        <div class="press-logo">Издание</div>
-        <p class="press-headline">Статья будет добавлена</p>
+        <span class="press-link">Читать →</span>
+      </a>
+      <a class="press-item" href="https://cre.ru/news/97393" target="_blank" rel="noopener">
+        <div class="press-logo pl-cre">CRE</div>
+        <p class="press-headline">БЦ Obsidian получил «Золотой» Клевер</p>
         <span class="press-date">2025</span>
-      </div>
-      <div class="press-item">
-        <div class="press-logo">Издание</div>
-        <p class="press-headline">Статья будет добавлена</p>
+        <span class="press-link">Читать →</span>
+      </a>
+      <a class="press-item" href="https://mperspektiva.ru/topics/kak-rabotayut-sistemy-eko-sertifikatsii-nedvizhimosti/" target="_blank" rel="noopener">
+        <div class="press-logo pl-mp">Московская перспектива</div>
+        <p class="press-headline">Как работают системы эко-сертификации недвижимости</p>
         <span class="press-date">2025</span>
+        <span class="press-link">Читать →</span>
+      </a>
+      <a class="press-item" href="https://link.springer.com/book/10.1007/978-3-032-04485-3" target="_blank" rel="noopener">
+        <div class="press-logo pl-palgrave">Palgrave Macmillan</div>
+        <p class="press-headline">Соавтор книги Rethinking Water and Energy for a Sustainable Future</p>
+        <span class="press-date">2025</span>
+        <span class="press-link">Смотреть →</span>
+      </a>
+      <div class="press-item">
+        <div class="press-logo pl-eco">Справочник эколога</div>
+        <p class="press-headline">Цикл авторских статей: эко-сертификация, ESG-рейтинги, прогноз умных зданий до 2050 и путь к «Золоту»</p>
+        <span class="press-date">2024–2025</span>
       </div>
     </div>
   </div>

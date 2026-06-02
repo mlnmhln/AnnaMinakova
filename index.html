@@ -171,6 +171,20 @@ header.scrolled{background:rgba(11,15,20,.72);backdrop-filter:blur(14px);border-
 .scroll-hint .ln{width:1px;height:42px;background:linear-gradient(var(--gold),transparent)}
 @keyframes floaty{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 
+/* ---------- HERO STATS (count-up) ---------- */
+.hero-stats{position:absolute;left:50%;transform:translateX(-50%);bottom:80px;z-index:4;
+  width:100%;max-width:var(--maxw);padding:22px clamp(20px,5vw,48px) 0;
+  display:flex;gap:clamp(20px,5vw,58px);flex-wrap:wrap;
+  border-top:1px solid rgba(200,169,106,.18);
+  opacity:0;animation:statsIn 1s var(--ease) .55s forwards}
+@keyframes statsIn{to{opacity:1}}
+.hstat{display:flex;flex-direction:column;gap:7px}
+.hstat .num{font-family:var(--font-display);font-weight:600;color:var(--gold);
+  font-size:clamp(26px,3.2vw,44px);line-height:1;letter-spacing:-.01em;
+  text-shadow:0 2px 22px rgba(19,20,23,.85);font-variant-numeric:tabular-nums}
+.hstat .lbl{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);
+  max-width:19ch;line-height:1.45;text-shadow:0 1px 12px rgba(19,20,23,.8)}
+
 /* ---------- SECTION SHELL ---------- */
 section.block{position:relative;padding:clamp(80px,11vw,150px) clamp(20px,5vw,48px)}
 .wrap{max-width:var(--maxw);margin:0 auto;width:100%}
@@ -644,6 +658,11 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
   #heroPlanet{width:120vw;top:-8vh;left:50%;transform:translateX(-50%);opacity:.9}
   .hero-cta{margin-top:28px}
   .scroll-hint{display:none}
+  .hero-stats{position:static;transform:none;order:3;width:100%;max-width:560px;
+    margin:32px auto 0;padding:24px 0 0;
+    display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;
+    animation:none;opacity:1}
+  .hstat .num{font-size:30px}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -652,6 +671,7 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
   .text-reveal .char{opacity:1;transform:none}
   .orb{display:none}
   .scroll-progress{display:none}
+  .hero-stats{opacity:1}
 }
 
 /* ---------- MODAL (documents) ---------- */
@@ -732,6 +752,12 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
       <p class="hero-lead">«Будущее — это не прогноз. Это выбор, который вы делаете сегодня»</p>
       <div class="hero-cta"><a href="#contact" class="btn btn-primary">Обсудить задачу <span class="arr">→</span></a></div>
     </div>
+  </div>
+  <div class="hero-stats" aria-label="Ключевые цифры">
+    <div class="hstat"><span class="num" data-count-to="1000000" data-suf="+">0</span><span class="lbl">м² сертифицировано</span></div>
+    <div class="hstat"><span class="num" data-count-to="10" data-suf="+">0</span><span class="lbl">лет на рынке девелопмента и ESG</span></div>
+    <div class="hstat"><span class="num" data-count-to="16" data-suf="+">0</span><span class="lbl">международных сертификатов</span></div>
+    <div class="hstat"><span class="num" data-pre="5–" data-count-to="15">5–0</span><span class="lbl">лет · горизонт решений</span></div>
   </div>
   <div class="scroll-hint"><span>Листайте</span><span class="ln"></span></div>
 </section>
@@ -1482,6 +1508,36 @@ if(prog){addEventListener('scroll',()=>{
     }});
   },{threshold:.5});
   nums.forEach(el=>gio.observe(el));
+})();
+
+/* ===== COUNT-UP STATS (hero numbers tick to value) ===== */
+(function(){
+  function easeOutCubic(t){return 1-Math.pow(1-t,3);}
+  function fmt(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0');}
+  const nums=document.querySelectorAll('.hstat .num[data-count-to]');
+  if(!nums.length)return;
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduce){
+    nums.forEach(el=>{el.textContent=(el.dataset.pre||'')+fmt(parseFloat(el.dataset.countTo))+(el.dataset.suf||'');});
+    return;
+  }
+  function run(el){
+    const to=parseFloat(el.dataset.countTo);
+    const dur=parseInt(el.dataset.dur||'1900',10);
+    const pre=el.dataset.pre||'', suf=el.dataset.suf||'';
+    const start=performance.now();
+    function step(now){
+      const p=Math.min((now-start)/dur,1);
+      el.textContent=pre+fmt(easeOutCubic(p)*to)+suf;
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=pre+fmt(to)+suf;
+    }
+    requestAnimationFrame(step);
+  }
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){run(e.target);io.unobserve(e.target);}});
+  },{threshold:.35});
+  nums.forEach(el=>io.observe(el));
 })();
 
 /* ===== modal: documents ===== */

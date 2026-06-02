@@ -550,59 +550,6 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(170,178,189,.12);
 .tilt-card:hover{box-shadow:0 30px 60px rgba(0,0,0,.35),0 0 1px rgba(200,169,106,.3)}
 .tilt-card .tilt-inner{transform:translateZ(20px);transition:transform .4s var(--ease)}
 
-/* ---------- MAGNETIC BUTTONS ---------- */
-.btn{position:relative;overflow:hidden}
-.btn::before{content:'';position:absolute;inset:-2px;border-radius:inherit;
-  background:linear-gradient(135deg,rgba(200,169,106,.15),transparent 50%,rgba(200,169,106,.08));
-  opacity:0;transition:opacity .4s}
-.btn:hover::before{opacity:1}
-.btn-primary::after{content:'';position:absolute;top:50%;left:50%;width:0;height:0;
-  background:rgba(255,255,255,.15);border-radius:50%;transform:translate(-50%,-50%);
-  transition:width .6s var(--ease),height .6s var(--ease),opacity .6s}
-.btn-primary:hover::after{width:300px;height:300px;opacity:0}
-
-/* ---------- 3D ROTATING RING (hero) ---------- */
-.ring-3d{position:absolute;z-index:2;pointer-events:none;
-  width:clamp(280px,36vw,520px);height:clamp(280px,36vw,520px);
-  right:clamp(-40px,2vw,60px);top:50%;transform:translateY(-50%);
-  perspective:800px}
-.ring-3d-inner{width:100%;height:100%;position:relative;
-  transform-style:preserve-3d;animation:ring3dSpin 18s linear infinite}
-.ring-3d-inner::before,.ring-3d-inner::after{content:'';position:absolute;inset:0;
-  border-radius:50%;border:1px solid rgba(200,169,106,.12)}
-.ring-3d-inner::before{transform:rotateX(75deg)}
-.ring-3d-inner::after{transform:rotateX(75deg) rotateY(60deg);
-  border-color:rgba(31,58,95,.18)}
-.ring-3d .orbit-dot{position:absolute;width:6px;height:6px;background:var(--gold);
-  border-radius:50%;top:50%;left:50%;margin:-3px 0 0 -3px;
-  box-shadow:0 0 12px rgba(200,169,106,.6);animation:ring3dDot 6s linear infinite}
-@keyframes ring3dSpin{to{transform:rotateY(360deg) rotateX(15deg)}}
-@keyframes ring3dDot{
-  0%{transform:rotateX(75deg) translateX(0) translateZ(clamp(140px,18vw,260px))}
-  100%{transform:rotateX(75deg) translateX(0) translateZ(clamp(140px,18vw,260px)) rotateZ(360deg)}
-}
-
-/* ---------- 3D FLOATING DIAMONDS ---------- */
-.deco-3d{position:absolute;pointer-events:none;z-index:1}
-.deco-3d .shape{width:40px;height:40px;position:relative;
-  transform-style:preserve-3d;animation:deco3dFloat 12s ease-in-out infinite}
-.deco-3d .shape::before{content:'';position:absolute;inset:0;
-  border:1px solid rgba(200,169,106,.18);transform:rotate(45deg)}
-.deco-3d .shape::after{content:'';position:absolute;inset:4px;
-  border:1px solid rgba(31,58,95,.22);transform:rotate(45deg) rotateX(60deg)}
-.deco-3d.d1{top:18%;right:22%;animation-delay:-2s}
-.deco-3d.d1 .shape{width:30px;height:30px;animation-duration:14s}
-.deco-3d.d2{bottom:25%;left:8%;animation-delay:-6s}
-.deco-3d.d2 .shape{width:22px;height:22px;animation-duration:16s}
-.deco-3d.d3{top:60%;right:6%}
-.deco-3d.d3 .shape{width:18px;height:18px;animation-duration:10s}
-@keyframes deco3dFloat{
-  0%,100%{transform:translateY(0) rotateY(0) rotateX(0)}
-  25%{transform:translateY(-18px) rotateY(90deg) rotateX(15deg)}
-  50%{transform:translateY(-8px) rotateY(180deg) rotateX(-10deg)}
-  75%{transform:translateY(-22px) rotateY(270deg) rotateX(12deg)}
-}
-
 /* ---------- 3D SECTION REVEALS ---------- */
 .reveal-3d{opacity:0;transform:perspective(1200px) rotateX(4deg) translateY(50px);
   transform-origin:center bottom;
@@ -613,22 +560,6 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(170,178,189,.12);
 .feature{transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
 .feature:hover{transform:perspective(1000px) rotateY(-2deg) translateZ(20px) scale(1.01);
   box-shadow:0 50px 80px rgba(0,0,0,.4),0 0 1px rgba(200,169,106,.25)}
-
-/* ---------- 3D GRID LINES (hero background) ---------- */
-.hero-grid{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;
-  perspective:600px;perspective-origin:50% 100%}
-.hero-grid-inner{position:absolute;left:-20%;right:-20%;bottom:-10%;height:70%;
-  transform:rotateX(55deg);transform-origin:center bottom;
-  background:
-    repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(200,169,106,.04) 79px,rgba(200,169,106,.04) 80px),
-    repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(31,58,95,.06) 79px,rgba(31,58,95,.06) 80px);
-  mask-image:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 70%);
-  -webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 70%);
-  animation:gridPulse 8s ease-in-out infinite}
-@keyframes gridPulse{
-  0%,100%{opacity:.5}
-  50%{opacity:.8}
-}
 
 /* ---------- ENHANCED GLASS CARDS ---------- */
 .glass-card{background:rgba(22,27,34,.35);border:1px solid rgba(170,178,189,.10);
@@ -721,7 +652,6 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
   .text-reveal .char{opacity:1;transform:none}
   .orb{display:none}
   .scroll-progress{display:none}
-  .deco-3d,.ring-3d{display:none}
 }
 
 /* ---------- MODAL (documents) ---------- */
@@ -791,18 +721,10 @@ section.block::after{content:'';position:absolute;bottom:0;left:10%;right:10%;he
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <!-- 3D perspective grid -->
-  <div class="hero-grid" aria-hidden="true"><div class="hero-grid-inner"></div></div>
   <video id="heroPlanet" autoplay muted loop playsinline poster="assets/planet-poster.jpg">
     <source src="assets/planet.mp4" type="video/mp4">
   </video>
-  <!-- 3D rotating ring around Anna -->
-  <div class="ring-3d" aria-hidden="true"><div class="ring-3d-inner"><span class="orbit-dot"></span></div></div>
   <img id="heroPhoto" src="assets/anna.png" alt="Анна Минакова">
-  <!-- 3D floating diamonds -->
-  <div class="deco-3d d1" aria-hidden="true"><div class="shape"></div></div>
-  <div class="deco-3d d2" aria-hidden="true"><div class="shape"></div></div>
-  <div class="deco-3d d3" aria-hidden="true"><div class="shape"></div></div>
   <div class="hero-inner">
     <div class="hero-lead-block reveal in">
       <span class="hero-eyebrow">Стратег · Исследователь · Визионер</span>
@@ -1501,26 +1423,7 @@ if(prog){addEventListener('scroll',()=>{
   });
 })();
 
-/* ===== MAGNETIC BUTTONS ===== */
-(function(){
-  const btns=document.querySelectorAll('.btn-primary,.btn-ghost');
-  const strength=.3;
-  btns.forEach(btn=>{
-    btn.addEventListener('mousemove',e=>{
-      const r=btn.getBoundingClientRect();
-      const cx=r.left+r.width/2, cy=r.top+r.height/2;
-      const dx=(e.clientX-cx)*strength, dy=(e.clientY-cy)*strength;
-      btn.style.transform='translate('+dx+'px,'+dy+'px)';
-    });
-    btn.addEventListener('mouseleave',()=>{
-      btn.style.transform='translate(0,0)';
-      btn.style.transition='transform .5s cubic-bezier(.22,.61,.36,1)';
-      setTimeout(()=>{btn.style.transition='';},500);
-    });
-  });
-})();
-
-/* ===== 3D SECTION REVEAL (replace text-reveal) ===== */
+/* ===== 3D SECTION REVEAL ===== */
 (function(){
   const els=document.querySelectorAll('.prod-split,.media,.books-row,.orbit-nav,.when-grid,.appr-grid,.aud-grid');
   els.forEach(el=>el.classList.add('reveal-3d'));
@@ -1536,29 +1439,18 @@ if(prog){addEventListener('scroll',()=>{
   if(!hero)return;
   const photo=document.getElementById('heroPhoto');
   const planet=document.getElementById('heroPlanet');
-  const ring=hero.querySelector('.ring-3d');
-  const grid=hero.querySelector('.hero-grid-inner');
-  const decos=hero.querySelectorAll('.deco-3d');
   hero.addEventListener('mousemove',e=>{
     const r=hero.getBoundingClientRect();
     const x=(e.clientX-r.left)/r.width-.5;
     const y=(e.clientY-r.top)/r.height-.5;
-    if(photo) photo.style.transform='translateY(-50%) translate('+(x*-22)+'px,'+(y*-15)+'px)';
-    if(planet) planet.style.transform='translate('+(x*35)+'px,'+(y*25)+'px)';
-    if(ring) ring.style.transform='translateY(-50%) translate('+(x*-12)+'px,'+(y*-8)+'px)';
-    if(grid) grid.style.transform='rotateX(55deg) translate('+(x*10)+'px,'+(y*6)+'px)';
-    decos.forEach((d,i)=>{const f=(i+1)*6;d.style.transform='translate('+(x*f)+'px,'+(y*f)+'px)';});
+    if(photo) photo.style.transform='translateY(-50%) translate('+(x*-16)+'px,'+(y*-11)+'px)';
+    if(planet) planet.style.transform='translate('+(x*26)+'px,'+(y*18)+'px)';
   });
   hero.addEventListener('mouseleave',()=>{
     const ease='transform .8s cubic-bezier(.22,.61,.36,1)';
-    [photo,planet,ring,grid,...decos].forEach(el=>{
-      if(!el)return;el.style.transition=ease;
-      if(el===photo)el.style.transform='translateY(-50%)';
-      else if(el===grid)el.style.transform='rotateX(55deg)';
-      else if(el===ring)el.style.transform='translateY(-50%)';
-      else el.style.transform='';
-    });
-    setTimeout(()=>[photo,planet,ring,grid,...decos].forEach(el=>{if(el)el.style.transition='';}),800);
+    if(photo){photo.style.transition=ease;photo.style.transform='translateY(-50%)';}
+    if(planet){planet.style.transition=ease;planet.style.transform='';}
+    setTimeout(()=>{if(photo)photo.style.transition='';if(planet)planet.style.transition='';},800);
   });
 })();
 

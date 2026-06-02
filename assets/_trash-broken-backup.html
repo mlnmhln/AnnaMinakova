@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  САЙТ АННЫ МИНАКОВОЙ
+  ------------------------------------------------------------
+  КАК ЗАМЕНИТЬ ВИДЕО НА ПЕРВОМ ЭКРАНЕ:
+  1. Замени файл  assets/planet.mp4  своим видео (то же имя).
+  2. (опц.) Замени постер assets/planet-poster.jpg — первый кадр.
+  3. Ничего больше менять не нужно — размер, позиция, прозрачность
+     и режим наложения сохранятся.
+
+  ЕСЛИ У НОВОГО ВИДЕО ЧЁРНЫЙ ФОН (как сейчас):
+     оставь  --hero-video-blend: screen;  (чёрный станет прозрачным,
+     видно только светящийся объект — планету, орбиту и т.п.)
+  ЕСЛИ ФОН НЕ ЧЁРНЫЙ (цветной/светлый):
+     поставь  --hero-video-blend: normal;
+
+  ВСЕ НАСТРОЙКИ ВИДЕО — в блоке :root ниже (--hero-video-*).
+  ============================================================
+-->
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анна Минакова — Стратег будущего</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-0:#131417; --bg-1:#1B1D21; --bg-2:#26282D;
+  --grey:#AAB0B8; --white:#FFFFFF;
+  --gold:#C8A96A; --gold-soft:#d9bd81; --blue:#1F3A5F;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Manrope',system-ui,sans-serif;
+  --maxw:1240px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --hero-video-width: min(82vw, 1040px);
+  --hero-video-left: -4%;
+  --hero-video-bottom: -6%;
+  --hero-video-right: 0;
+  --hero-video-opacity: 1;
+  --hero-video-blend: screen;
+}
+/* === ПРИМЕЧАНИЕ: это БЭКАП от 2026-06-02. Полную рабочую копию стилей/разметки
+   см. в действующем index.html. Этот файл — страховочная точка отката на случай,
+   если апгрейд в стиле Metabole пойдёт не так. Для отката надёжнее всего
+   воспользоваться историей GitHub Desktop (Revert / предыдущий коммит). === */
+</style>
+</head>
+<body>
+<p>Резервная метка времени: 2026-06-02. Рабочая версия — в index.html.</p>
+</body>
+</html>

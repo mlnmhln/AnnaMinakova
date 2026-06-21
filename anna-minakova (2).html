@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анна Минакова — Strategic Foresight</title>
+<meta name="description" content="Стратегическое мышление и сценарии будущего для компаний, которые создают ценность и строят устойчивое завтра.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   ANNA MINAKOVA — Strategic Foresight
+   ============================================ */
+
+:root {
+  --bg:        #0a0a0c;
+  --bg-2:      #0e0e11;
+  --surface:   #141417;
+  --surface-2: #1a1a1e;
+  --border:    #26262b;
+  --border-2:  #313137;
+  --text:      #f2f2f4;
+  --text-2:    #b6b6bd;
+  --text-3:    #8a8a92;
+  --accent:    #ff4d12;
+  --accent-2:  #ff5e2a;
+  --accent-soft: rgba(255, 77, 18, 0.12);
+
+  --maxw: 1280px;
+  --gut: clamp(20px, 5vw, 80px);
+
+  --font-display: "Oswald", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Golos Text", "Inter", system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(.22,1,.36,1);
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='18' viewBox='0 0 24 18' fill='none'%3E%3Cpath d='M4 3L10 9L4 15M13 3L19 9L13 15' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gut); }
+
+/* ---- Typography helpers ---- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+.accent { color: var(--accent); }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.92rem;
+  padding: 18px 30px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn .arr,
+.read-link .arr,
+.cta-band .arr,
+.link-arrow .arr {
+  display: inline-block;
+  width: 22px;
+  height: 16px;
+  font-size: 0;
+  color: transparent;
+  background-color: currentColor;
+  -webkit-mask: var(--chevron) no-repeat center / contain;
+  mask: var(--chevron) no-repeat center / contain;
+  transition: transform 0.2s ease;
+  flex: 0 0 auto;
+}
+.btn .arr { color: #fff; }
+.btn--ghost .arr { color: var(--text); }
+.btn--ghost:hover .arr { color: var(--accent); }
+.read-link .arr, .cta-band .arr { color: inherit; }
+.read-link .arr { color: var(--accent); }
+.link-arrow .arr { color: var(--accent); }
+.btn:hover .arr,
+.read-link:hover .arr,
+.link-arrow:hover .arr { transform: translateX(5px); }
+.btn .arr--diag,
+.read-link .arr--diag,
+.cta-band .arr--diag,
+.arr--diag {
+  width: auto; height: auto; font-size: inherit;
+  color: inherit; background: none;
+  -webkit-mask: none; mask: none;
+}
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-2); }
+.btn--ghost { background: transparent; color: var(--text); border-color: var(--border-2); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn--yt { background: var(--accent); color: #fff; }
+.btn--yt:hover { background: var(--accent-2); }
+
+/* ---- Image placeholders ---- */
+.ph {
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.014) 0 12px, transparent 12px 24px),
+    linear-gradient(145deg, #1c1c20, #0f0f12);
+  border: 1px solid var(--border);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ph::after {
+  content: attr(data-label);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 8px 12px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,12,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 84px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.92;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+.logo .dot { color: var(--accent); }
+.main-nav { display: flex; gap: 34px; margin-left: 20px; }
+.main-nav a {
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.main-nav a:hover { color: var(--text); }
+.header-right { margin-left: auto; display: flex; align-items: center; gap: 28px; }
+.lang { display:inline-flex; align-items:center; gap:4px; background:none; border:0; cursor:pointer; font-family:var(--font-body); font-size:0.85rem; font-weight:600; letter-spacing:0.05em; color:var(--text-3); padding:6px 2px; }
+.lang span[data-lang] { transition:color 0.2s; }
+.lang span[data-lang].on { color:var(--text); }
+.lang span[data-lang]:not(.on):hover { color:var(--text-2); }
+.lang .sep { color:var(--accent); }
+.header-right .btn { padding: 14px 24px; font-size: 0.82rem; }
+.burger { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
+.burger span { width: 26px; height: 2px; background: var(--text); display: block; }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero { position: relative; padding: clamp(48px,7vw,90px) 0 0; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(24px,4vw,56px);
+  align-items: center;
+  min-height: 64vh;
+}
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); margin-bottom: 28px; }
+.hero-lead { color: var(--text-2); font-size: 1.12rem; max-width: 30ch; margin-bottom: 38px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 16px; }
+.hero-visual { position: relative; }
+.hero-photo { aspect-ratio: 3/3.4; width: 100%; }
+.hero-quote {
+  position: absolute;
+  right: calc(var(--gut) * -1 + 12px);
+  bottom: 40px;
+  max-width: 260px;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: var(--text-2);
+}
+.hero-quote .qmark { color: var(--accent); font-family: var(--font-display); font-size: 2.4rem; line-height: 0.4; display: block; margin-bottom: 14px; }
+.hero-quote cite { display: block; margin-top: 14px; color: var(--text); font-style: normal; font-weight: 600; }
+
+.hero-strip {
+  border-top: 1px solid var(--accent);
+  margin-top: clamp(40px,5vw,64px);
+}
+.hero-strip .wrap {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.hero-strip li {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(0.72rem, 0.92vw, 0.82rem);
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  color: var(--text-2);
+  padding: 28px clamp(14px,1.5vw,22px);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  min-height: 92px;
+}
+.hero-strip li:first-child { padding-left: 0; }
+.hero-strip li:last-child { border-right: 0; padding-right: 0; }
+
+/* ============================================
+   SECTION SHELL
+   ============================================ */
+.section { padding: clamp(64px, 9vw, 130px) 0; }
+.section-head { margin-bottom: clamp(36px,5vw,60px); }
+.section-head h2 { font-size: clamp(2rem, 4.4vw, 3.5rem); margin-top: 14px; }
+.section-head .eyebrow + h2 { margin-top: 18px; }
+
+/* ============================================
+   2. СЦЕНАРНОЕ МОДЕЛИРОВАНИЕ
+   ============================================ */
+.modeling { background: var(--bg-2); }
+.modeling-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(28px,4vw,64px);
+  align-items: stretch;
+}
+.modeling-visual {
+  position: relative;
+  border: 1px solid var(--border);
+  min-height: 440px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(160deg, #131318, #0c0c0f);
+}
+.modeling-visual .brand-mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.9;
+  font-size: 1.4rem;
+}
+.modeling-visual .brand-mark small {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-top: 8px;
+  font-weight: 600;
+}
+.mini-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.mini-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  padding: 16px;
+}
+.mini-card h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+.bar-row { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; margin-bottom: 9px; color: var(--text-2); }
+.bar-row .lbl { flex: 0 0 78px; }
+.bar-track { flex: 1; height: 5px; background: var(--surface-2); position: relative; }
+.bar-fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); }
+.bar-row .val { flex: 0 0 30px; text-align: right; color: var(--text); }
+.scn-row { display: flex; justify-content: space-between; font-size: 0.74rem; margin-bottom: 10px; color: var(--text-2); }
+.scn-row b { color: var(--text); }
+.scn-row.hot b { color: var(--accent); }
+
+.modeling-body .lead { color: var(--text-2); font-size: 1.08rem; max-width: 46ch; margin-bottom: 40px; }
+/* ---- Steps carousel ---- */
+.steps-carousel { margin-top: 8px; }
+.steps-progress {
+  position: relative;
+  height: 2px;
+  background: var(--border-2);
+  border-radius: 2px;
+  margin: 0 16px 34px 0;
+}
+.steps-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 2px;
+  transition: width 0.4s var(--ease);
+}
+.steps-progress-dot {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: 3;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  transform: translate(50%, -50%);
+  box-shadow: 0 0 0 4px var(--accent-soft), 0 0 12px 2px var(--accent-2), 0 0 22px 4px rgba(255,77,18,0.45);
+  animation: dotPulse 2.4s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 4px var(--accent-soft), 0 0 12px 2px var(--accent-2), 0 0 22px 4px rgba(255,77,18,0.45); }
+  50% { box-shadow: 0 0 0 6px var(--accent-soft), 0 0 16px 3px var(--accent-2), 0 0 30px 6px rgba(255,77,18,0.55); }
+}
+.steps-track {
+  --per-view: 2.15;
+  --gap: 30px;
+  --card-w: calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 6px;
+  cursor: grab;
+}
+/* trailing spacer: lets the LAST card snap to the left edge like the others */
+.steps-track::after {
+  content: "";
+  flex: 0 0 calc(100% - var(--card-w));
+}
+.steps-track::-webkit-scrollbar { display: none; }
+.steps-track.dragging { cursor: grabbing; scroll-snap-type: none; }
+.step {
+  flex: 0 0 var(--card-w);
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  opacity: 0.32;
+  transition: opacity 0.45s var(--ease);
+}
+.steps-track.dragging .step { transition: none; }
+.step.is-active { opacity: 1; }
+.step .num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.step h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.step p { font-size: 0.86rem; color: var(--text-3); }
+.modeling-body > .btn { margin-top: 44px; }
+
+/* ============================================
+   3. О АННЕ (объединённый блок)
+   ============================================ */
+.about-top {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(28px,4vw,60px);
+  align-items: start;
+}
+.about-left h2 { font-size: clamp(2rem,4.6vw,3.6rem); margin-bottom: 40px; }
+.about-photo { aspect-ratio: 4/5; width: 100%; }
+.research-list-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: var(--text-3);
+  margin-bottom: 20px;
+}
+.check-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 1rem;
+}
+.check-list .box {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--accent);
+  flex: 0 0 auto;
+}
+.result-note {
+  margin-top: 36px;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+.result-note b { color: var(--accent); font-weight: 600; }
+
+/* facts row at the bottom — styled like the stats at the bottom of the old block 4 */
+.facts-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(30px,4vw,46px) clamp(20px,3vw,40px);
+  margin-top: clamp(48px,6vw,72px);
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+.fact .big {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--accent);
+  line-height: 1.08;
+  margin-bottom: 12px;
+}
+.fact .big sup { font-size: 0.6em; }
+.fact p { font-size: 0.88rem; color: var(--text-2); line-height: 1.45; }
+
+/* ============================================
+   4. СОЕДИНЯЮ СЕГОДНЯ И ТОЧКИ
+   ============================================ */
+.connect { background: var(--bg-2); position: relative; }
+.connect-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(28px,4vw,56px);
+  align-items: center;
+}
+.connect h2 { font-size: clamp(2rem,4.6vw,3.5rem); margin: 18px 0 30px; }
+.connect p { color: var(--text-2); font-size: 1.05rem; max-width: 44ch; margin-bottom: 22px; }
+.connect-cta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 34px; }
+.connect-visual { aspect-ratio: 4/3; width: 100%; border-radius: 10px; }
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(16px,2vw,30px);
+  margin-top: clamp(48px,6vw,72px);
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+.stat .num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem,4vw,3.6rem);
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.stat p { font-size: 0.86rem; color: var(--text-2); }
+.stat--note h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.stat--note .globe { width: 26px; height: 26px; color: var(--text); }
+
+/* ============================================
+   5. ПРОЕКТЫ АННЫ
+   ============================================ */
+.projects-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: clamp(36px,5vw,56px);
+}
+.projects-head h2 { font-size: clamp(2rem,4.4vw,3.3rem); margin-top: 14px; }
+.link-arrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  color: var(--accent);
+  display: inline-flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  overflow: hidden;
+  min-height: 360px;
+}
+.project-card .pimg { width: 100%; height: 100%; min-height: 360px; }
+.project-card .pbody { padding: 30px 26px; }
+.project-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+}
+.project-card .ptag { font-size: 0.96rem; color: var(--text); margin-bottom: 16px; line-height: 1.4; }
+.project-card p { font-size: 0.84rem; color: var(--text-3); line-height: 1.5; }
+
+/* ============================================
+   6. ПУБЛИКАЦИИ И ВЫСТУПЛЕНИЯ
+   ============================================ */
+.pub { background: var(--bg-2); }
+.pub-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 24px; margin-bottom: clamp(32px,4vw,48px);
+}
+.pub-head h2 { font-family: var(--font-display); font-weight: 600; text-transform: none; font-size: clamp(1.9rem,4vw,3rem); margin-top: 12px; }
+.pub-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.pub-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 30px;
+}
+.pub-card .date { font-size: 0.78rem; letter-spacing: 0.08em; color: var(--text-3); text-transform: uppercase; margin-bottom: 22px; }
+.pub-card h3 { font-family: var(--font-display); font-weight: 600; text-transform: none; font-size: 1.4rem; line-height: 1.15; margin-bottom: 18px; }
+.pub-card p { font-size: 0.9rem; color: var(--text-2); margin-bottom: 26px; }
+.read-link { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.82rem; font-weight: 600; display: inline-flex; gap: 12px; color: var(--text); }
+.read-link .arr { color: var(--accent); }
+
+.cta-band {
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(32px,4vw,52px);
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 30px;
+  align-items: center;
+}
+.cta-band h3 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: clamp(1.5rem,2.6vw,2.1rem); line-height: 1.05; }
+.cta-band p { color: var(--text-2); font-size: 1rem; }
+
+/* ============================================
+   7. YOUTUBE / МЕДИА
+   ============================================ */
+.youtube-grid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(32px,4vw,60px);
+}
+.yt-left h2 { font-family: var(--font-display); font-weight: 600; text-transform: none; font-size: clamp(2rem,4vw,3rem); line-height: 1.06; margin: 16px 0 26px; }
+.yt-left .desc { color: var(--text-2); font-size: 1rem; margin-bottom: 32px; max-width: 40ch; }
+.yt-themes-title { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.74rem; color: var(--text-3); margin-bottom: 16px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+.tag {
+  border: 1px solid var(--border-2);
+  border-radius: 100px;
+  padding: 9px 18px;
+  font-size: 0.82rem;
+  color: var(--text-2);
+}
+.tag .hash { color: var(--accent); }
+.yt-note { color: var(--text-2); font-size: 0.96rem; line-height: 1.55; margin-bottom: 30px; }
+.yt-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.yt-card {
+  position: relative;
+  aspect-ratio: 16/11;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+}
+.yt-card .yt-cat { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.66rem; color: var(--accent); font-weight: 600; }
+.yt-card h4 { font-family: var(--font-display); text-transform: uppercase; font-size: 1.05rem; line-height: 1.1; margin: 12px 0; max-width: 60%; }
+.yt-card .speaker { color: var(--accent); font-weight: 600; font-size: 0.86rem; margin-bottom: 4px; }
+.yt-card .role { color: var(--text-2); font-size: 0.8rem; }
+.yt-card .dur { display: inline-flex; align-items: center; gap: 8px; font-size: 0.84rem; color: var(--text); margin-top: 14px; }
+.yt-card .dur .tri { color: var(--accent); }
+
+/* ============================================
+   8. АННА — СПИКЕР
+   ============================================ */
+.speaker { background: var(--bg-2); }
+.speaker-top {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(28px,4vw,56px);
+  align-items: stretch;
+}
+.speaker-photo { min-height: 520px; }
+.speaker-right h2 { font-size: clamp(2.4rem,5vw,4rem); margin: 16px 0 26px; }
+.speaker-sub { font-size: 1.3rem; line-height: 1.4; margin-bottom: 36px; }
+.speaker-sub .accent { color: var(--accent); }
+.aud-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 26px;
+}
+.aud-card li {
+  display: flex; align-items: center; gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+}
+.aud-card li:last-child { border-bottom: 0; }
+.aud-card .ic { width: 30px; height: 30px; color: var(--accent); flex: 0 0 auto; }
+.speaker-shots { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 30px; }
+.shot { position: relative; aspect-ratio: 4/3.4; border: 1px solid var(--border); display: flex; align-items: flex-end; }
+.shot .cap { position: relative; z-index: 2; padding: 16px; font-size: 0.84rem; line-height: 1.3; }
+.speaker-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 30px; margin-top: clamp(36px,4vw,52px); flex-wrap: wrap;
+}
+.themes-title { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; color: var(--text-3); margin-bottom: 18px; }
+.theme-tags { display: flex; flex-wrap: wrap; gap: 12px; max-width: 720px; }
+.theme-tags .tag::before { content: "•"; color: var(--accent); margin-right: 8px; }
+
+/* ============================================
+   9. ИССЛЕДОВАНИЯ (R&D)
+   ============================================ */
+.research-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 30px; flex-wrap: wrap; margin-bottom: 30px;
+}
+.research-top h2 { font-family: var(--font-body); font-weight: 700; text-transform: none; letter-spacing: -0.01em; line-height: 1.12; font-size: clamp(1.8rem,3.2vw,2.6rem); margin-top: 16px; max-width: 20ch; }
+.research-actions { display: flex; flex-direction: column; gap: 14px; }
+.rd-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: clamp(36px,4vw,52px); }
+.rd-tag {
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-2);
+}
+.rd-tag .ic { width: 20px; height: 20px; color: var(--accent); }
+.research-feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(28px,3vw,44px);
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(28px,4vw,52px);
+  align-items: center;
+}
+.diploma { aspect-ratio: 3/4; width: 100%; max-width: 360px; }
+.research-feature h3 { font-family: var(--font-display); font-weight: 600; text-transform: none; font-size: clamp(1.6rem,2.6vw,2.2rem); line-height: 1.1; margin: 12px 0 22px; }
+.research-feature .rf-desc { color: var(--text-2); font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
+.award-box {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 26px;
+  display: grid;
+  grid-template-columns: auto 1fr 1.3fr;
+  gap: 24px;
+  align-items: center;
+}
+.award-box .trophy { width: 40px; height: 40px; color: var(--accent); }
+.award-box .place { font-family: var(--font-display); font-weight: 700; }
+.award-box .place b { color: var(--accent); display: block; font-size: 1.05rem; }
+.award-box .place small { color: var(--text-3); font-size: 0.74rem; letter-spacing: 0.04em; }
+.award-box .award-note { font-size: 0.86rem; color: var(--text-2); line-height: 1.5; }
+
+/* ============================================
+   10. КНИГИ
+   ============================================ */
+.books { background: var(--bg-2); }
+.books-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px,5vw,70px);
+  align-items: center;
+}
+.books-left h2 { font-size: clamp(2rem,4.4vw,3.3rem); margin: 16px 0 36px; }
+.book-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.book-item:first-of-type { border-top: 1px solid var(--border); }
+.book-item h3 { font-family: var(--font-body); font-weight: 500; font-size: 1.05rem; line-height: 1.4; color: var(--text); }
+.book-item .arr { color: var(--accent); font-size: 1.3rem; }
+.books-visual { aspect-ratio: 4/3; width: 100%; }
+
+/* ============================================
+   11. METABUILD
+   ============================================ */
+.metabuild-grid {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: clamp(28px,4vw,56px);
+  align-items: stretch;
+}
+.metabuild-img { min-height: 560px; border-radius: 18px; }
+.metabuild-body h2 { font-family: var(--font-body); font-weight: 700; text-transform: none; font-size: clamp(2.2rem,4vw,3rem); margin: 14px 0 6px; }
+.metabuild-body .mb-sub { font-family: var(--font-body); font-weight: 600; font-size: clamp(1.2rem,2vw,1.6rem); line-height: 1.25; margin-bottom: 30px; }
+.metabuild-body p { color: var(--text-2); font-size: 1rem; line-height: 1.6; margin-bottom: 20px; max-width: 64ch; }
+.tech-title { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; color: var(--accent); margin: 34px 0 18px; }
+.tech-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.tech-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+}
+.tech-chip .ic { width: 22px; height: 22px; color: var(--accent); flex: 0 0 auto; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: clamp(56px,6vw,84px) 0 36px;
+  background: var(--bg);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: clamp(28px,4vw,56px);
+  margin-bottom: 56px;
+}
+.footer-brand .logo { font-size: 1.4rem; margin-bottom: 20px; }
+.footer-brand p { color: var(--text-3); font-size: 0.92rem; max-width: 32ch; }
+.footer-col h5 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; color: var(--text-3); margin-bottom: 20px; }
+.footer-col li { margin-bottom: 13px; }
+.footer-col a { font-size: 0.92rem; color: var(--text-2); transition: color 0.2s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-cta .btn { width: 100%; justify-content: center; margin-bottom: 16px; }
+.footer-contact { font-size: 0.95rem; color: var(--text-2); }
+.footer-contact a { color: var(--text); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; flex-wrap: wrap;
+  padding-top: 28px; border-top: 1px solid var(--border);
+  font-size: 0.84rem; color: var(--text-3);
+}
+.socials { display: flex; gap: 14px; }
+.socials a {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border-2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.socials a:hover { border-color: var(--accent); color: var(--accent); }
+.socials svg { width: 18px; height: 18px; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .main-nav, .header-right .btn { display: none; }
+  .burger { display: flex; }
+  .main-nav.open {
+    display: flex;
+    position: absolute;
+    top: 84px; left: 0; right: 0;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+  }
+  .main-nav.open a { padding: 14px var(--gut); width: 100%; }
+  .hero-grid, .modeling-grid, .about-top,
+  .youtube-grid, .speaker-top, .books-grid, .metabuild-grid,
+  .research-feature { grid-template-columns: 1fr; }
+  .facts-row { grid-template-columns: repeat(2, 1fr); }
+  .hero-quote { position: static; max-width: none; margin-top: 24px; }
+  .hero-strip .wrap { grid-template-columns: repeat(3,1fr); }
+  .hero-strip li { padding: 22px clamp(14px,2vw,20px); min-height: 84px; }
+  .hero-strip li:nth-child(3n) { border-right: 0; }
+  .hero-strip li:first-child, .hero-strip li:nth-child(3n+1) { padding-left: 0; }
+  .hero-strip li:nth-child(3n) { padding-right: 0; }
+  .hero-strip li:nth-child(n+4) { border-top: 1px solid var(--border); }
+  .projects-grid, .pub-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(3,1fr); row-gap: 36px; }
+  .cta-band { grid-template-columns: 1fr; }
+  .award-box { grid-template-columns: 1fr; gap: 16px; }
+  .tech-grid { grid-template-columns: repeat(2,1fr); }
+  .speaker-shots { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  :root { --gut: 18px; }
+  .hero-strip .wrap { grid-template-columns: 1fr 1fr; }
+  .hero-strip li { padding: 20px 16px; min-height: 78px; }
+  .hero-strip li:nth-child(3n) { border-right: 1px solid var(--border); }
+  .hero-strip li:nth-child(2n) { border-right: 0; padding-right: 0; }
+  .hero-strip li:nth-child(2n+1) { padding-left: 0; }
+  .hero-strip li:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .yt-videos, .speaker-shots { grid-template-columns: 1fr; }
+  .facts-row { grid-template-columns: 1fr 1fr; }
+  .about-photo { aspect-ratio: 3/2; }
+  .steps-track { --per-view: 1.12; --gap: 18px; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .tech-grid { grid-template-columns: 1fr 1fr; }
+  .project-card { grid-template-columns: 1fr; }
+  .project-card .pimg, .project-card .pimg.ph { min-height: 220px; }
+  .footer-top, .footer-bottom { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.4rem; }
+  .form-grid { grid-template-columns: 1fr; }
+  .yt-card h4 { max-width: 80%; }
+  .speaker-photo { min-height: 360px; }
+  .metabuild-img { min-height: 380px; }
+  /* allow long button labels to wrap instead of overflowing */
+  .btn { white-space: normal; padding: 16px 22px; }
+  /* dashboard mini-cards stack so bars don't overflow */
+  .mini-cards { grid-template-columns: 1fr; }
+  .modeling-visual { padding: 22px; }
+  /* section headers + "view all" link wrap cleanly */
+  .projects-head, .pub-head { flex-wrap: wrap; align-items: flex-start; }
+  .projects-head h2, .pub-head h2 { width: 100%; }
+}
+
+/* ===== PRELOADER ===== */
+.preloader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .8s ease,visibility .8s ease;}
+.preloader.hide{opacity:0;visibility:hidden;}
+.pre-inner{text-align:center;padding:24px;}
+.pre-logo{font-family:var(--font-display);font-weight:700;text-transform:uppercase;line-height:.9;font-size:clamp(2.2rem,7vw,3.6rem);letter-spacing:0.02em;opacity:0;animation:preIn .8s var(--ease) .1s forwards;}
+.pre-logo .dot{color:var(--accent);}
+.pre-sub{font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.36em;font-size:0.66rem;color:var(--accent);margin:16px 0 32px;opacity:0;animation:preIn .8s var(--ease) .3s forwards;}
+.pre-bar{width:min(280px,62vw);height:2px;background:var(--border-2);margin:0 auto;position:relative;overflow:hidden;}
+.pre-fill{position:absolute;inset:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:scaleX(0);transform-origin:left;animation:preFill 2s cubic-bezier(.5,0,.12,1) .15s forwards;}
+.pre-pct{font-family:var(--font-display);font-weight:600;font-size:0.9rem;color:var(--text-3);margin-top:18px;letter-spacing:0.12em;}
+.pre-pct i{font-style:normal;}
+@keyframes preIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+@keyframes preFill{to{transform:scaleX(1);}}
+
+/* ===== SCROLL PROGRESS + HEADER SHRINK ===== */
+.scroll-progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:200;}
+.site-header.scrolled{background:rgba(10,10,12,0.94);}
+
+/* ===== REVEAL ON SCROLL ===== */
+body.anim-ready .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+body.anim-ready .reveal.in{opacity:1;transform:none;}
+
+/* ===== MODAL ===== */
+.modal-overlay{position:fixed;inset:0;z-index:600;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(5,5,7,0.74);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;}
+.modal-overlay.open{opacity:1;visibility:visible;}
+.modal{width:min(560px,100%);max-height:90vh;overflow:auto;background:var(--surface);border:1px solid var(--border-2);border-radius:18px;padding:clamp(28px,4vw,44px);position:relative;transform:translateY(28px) scale(.97);transition:transform .45s var(--ease);}
+.modal-overlay.open .modal{transform:none;}
+.modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border:1px solid var(--border-2);background:transparent;color:var(--text-2);border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease);}
+.modal-close:hover{border-color:var(--accent);color:var(--accent);transform:rotate(90deg);}
+.modal h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:clamp(1.5rem,3vw,2rem);line-height:1.05;margin:14px 0 8px;}
+.modal .m-sub{color:var(--text-2);font-size:0.96rem;margin-bottom:26px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.field{display:flex;flex-direction:column;gap:8px;}
+.field.full{grid-column:1/-1;}
+.field label{font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.08em;font-size:0.7rem;color:var(--text-3);}
+.field input,.field select,.field textarea{background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:13px 14px;color:var(--text);font-family:var(--font-body);font-size:0.95rem;transition:border-color .2s,box-shadow .2s;width:100%;}
+.field textarea{resize:vertical;min-height:96px;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+.field input::placeholder,.field textarea::placeholder{color:var(--text-3);}
+.field select{appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--text-3) 50%),linear-gradient(135deg,var(--text-3) 50%,transparent 50%);background-position:calc(100% - 18px) center,calc(100% - 13px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat;}
+.modal-form .btn{width:100%;justify-content:center;}
+.form-note{font-size:0.76rem;color:var(--text-3);margin-top:14px;text-align:center;}
+.modal-body.done .modal-form{display:none;}
+.modal-success{display:none;text-align:center;padding:14px 0 4px;}
+.modal-body.done .modal-success{display:block;animation:preIn .55s var(--ease);}
+.success-ic{width:72px;height:72px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--accent);}
+.success-ic svg{width:34px;height:34px;}
+.success-ic svg path{stroke-dasharray:34;stroke-dashoffset:34;animation:draw .55s .2s var(--ease) forwards;}
+.modal-success .btn{margin-top:24px;}
+@keyframes draw{to{stroke-dashoffset:0;}}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+  body.anim-ready .reveal{opacity:1 !important;transform:none !important;}
+  .pre-fill{animation:none;transform:scaleX(1);}
+}
+
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="preloader" id="preloader">
+  <div class="pre-inner">
+    <div class="pre-logo">Anna<br>Minakova<span class="dot">.</span></div>
+    <div class="pre-sub">Strategic Foresight</div>
+    <div class="pre-bar"><span class="pre-fill"></span></div>
+    <div class="pre-pct"><span id="prePct">0</span><i>%</i></div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="#" class="logo">Anna<br>Minakova<span class="dot">.</span></a>
+    <nav class="main-nav">
+      <a href="#about" data-en='About'>Обо мне</a>
+      <a href="#services" data-en='Services'>Услуги</a>
+      <a href="#projects" data-en='Projects'>Проекты</a>
+      <a href="#publications" data-en='Publications'>Публикации</a>
+      <a href="#footer" data-en='Contacts'>Контакты</a>
+    </nav>
+    <div class="header-right">
+      <button class="lang" id="langToggle" type="button" aria-label="Switch language"><span data-lang="ru" class="on">RU</span><span class="sep">/</span><span data-lang="en">EN</span></button>
+      <a href="#" data-form-trigger="" class="btn btn--primary" data-en='Discuss your project <span class="arr">→</span>'>Обсудить задачу <span class="arr">→</span></a>
+      <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1 class="display" data-en='See the future.<br>Make the decisions<br><span class="accent">Today.</span>'>Видеть будущее.<br>Принимать решения<br><span class="accent">Сегодня.</span></h1>
+        <p class="hero-lead" data-en='Strategic thinking and future scenarios for companies that create value and build a sustainable tomorrow.'>Стратегическое мышление и сценарии будущего для компаний, которые создают ценность и строят устойчивое завтра.</p>
+        <div class="hero-cta">
+          <a href="#" data-form-trigger="" class="btn btn--primary" data-en='Discuss your project <span class="arr">→</span>'>Обсудить задачу <span class="arr">→</span></a>
+          <a href="#services" class="btn btn--ghost" data-en='My services'>Мои услуги</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="ph hero-photo" data-label="assets/images/hero-anna.jpg"></div>
+        <blockquote class="hero-quote" data-en='<span class="qmark">"</span> The future is not predicted. It is designed through the decisions we make today. <cite>Anna Minakova</cite>'>
+          <span class="qmark">"</span>
+          Будущее не предсказывают. Его проектируют через решения, которые мы принимаем сегодня.
+          <cite>Анна Минакова</cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="hero-strip">
+  <ul class="wrap">
+    <li data-en='Strategic advisory'>Стратегическое сопровождение</li>
+    <li data-en='Talks and lectures'>Выступления и учебные лекции</li>
+    <li data-en='Analytics and research, R&amp;D'>Аналитика и исследования, R&amp;D</li>
+    <li data-en='Anna&#39;s technology products'>Технологические продукты Анны</li>
+    <li data-en='Podcasts and interviews with leaders'>Подкасты, интервью с лидерами</li>
+    <li data-en='Educational programs'>Образовательные программы</li>
+  </ul>
+</div>
+
+<!-- ============ 2. СЦЕНАРНОЕ МОДЕЛИРОВАНИЕ ============ -->
+<section class="section modeling" id="services">
+  <div class="wrap">
+    <div class="modeling-grid">
+      <div class="modeling-visual">
+        <div>
+          <div style="font-family:var(--font-display);text-transform:uppercase;font-weight:600;font-size:0.78rem;letter-spacing:0.06em;color:var(--text-2);margin-bottom:6px" data-en='Strategy today —'>Стратегия сегодня —</div>
+          <div style="font-family:var(--font-display);text-transform:uppercase;font-weight:600;font-size:0.78rem;letter-spacing:0.06em;color:var(--text-2)" data-en='a sustainable future tomorrow'>устойчивое будущее завтра</div>
+        </div>
+        <div class="mini-cards">
+          <div class="mini-card">
+            <h4 data-en='Macrotrends'>Макротренды</h4>
+            <div class="ph" data-label="график" data-en-label="chart" style="height:90px;border-radius:6px"></div>
+          </div>
+          <div class="mini-card">
+            <h4 data-en='Drivers of change'>Драйверы изменений</h4>
+            <div class="bar-row"><span class="lbl" data-en='Tech.'>Технолог.</span><span class="bar-track"><span class="bar-fill" style="width:87%"></span></span><span class="val">87%</span></div>
+            <div class="bar-row"><span class="lbl" data-en='Econ.'>Экономич.</span><span class="bar-track"><span class="bar-fill" style="width:73%"></span></span><span class="val">73%</span></div>
+            <div class="bar-row"><span class="lbl" data-en='Social'>Социальн.</span><span class="bar-track"><span class="bar-fill" style="width:62%"></span></span><span class="val">62%</span></div>
+            <div class="bar-row"><span class="lbl" data-en='Eco.'>Экологич.</span><span class="bar-track"><span class="bar-fill" style="width:48%"></span></span><span class="val">48%</span></div>
+          </div>
+          <div class="mini-card">
+            <h4 data-en='Development scenarios'>Сценарии развития</h4>
+            <div class="scn-row hot" data-en='<span>Transformational</span><b>94%</b>'><span>Трансформационный</span><b>94%</b></div>
+            <div class="scn-row" data-en='<span>Innovative</span><b>68%</b>'><span>Инновационный</span><b>68%</b></div>
+            <div class="scn-row" data-en='<span>Baseline</span><b>52%</b>'><span>Базовый</span><b>52%</b></div>
+          </div>
+          <div class="mini-card">
+            <h4 data-en='Uncertainty level'>Уровень неопределённости</h4>
+            <div class="ph" data-label="индикатор" data-en-label="indicator" style="height:64px;border-radius:6px"></div>
+          </div>
+        </div>
+        <div class="brand-mark">Anna<br>Minakova<span style="color:var(--accent)">.</span><small>Strategic Foresight</small></div>
+      </div>
+
+      <div class="modeling-body">
+        <span class="eyebrow" data-en='For leaders who look further'>Для лидеров, которые смотрят дальше</span>
+        <h2 class="display" style="font-size:clamp(2rem,4.4vw,3.5rem);margin:18px 0 22px" data-en='Scenario modeling <span class="accent">of your company future</span>'>Сценарное моделирование <span class="accent">будущего вашей компании</span></h2>
+        <p style="font-size:1.2rem;color:var(--text);margin-bottom:26px" data-en='Strategic guidance over a 5–15 year horizon'>Стратегическое сопровождение на горизонте 5—15 лет</p>
+        <p class="lead" data-en='We help companies and teams understand the future, weigh risks and opportunities, and make decisions that shape tomorrow.'>Мы помогаем компаниям и командам понимать будущее, оценивать риски и возможности и принимать решения, которые формируют завтра.</p>
+        <div class="steps-carousel">
+          <div class="steps-progress"><span class="steps-progress-fill"><span class="steps-progress-dot"></span></span></div>
+          <div class="steps-track">
+            <div class="step is-active"><span class="num">01</span><div><h3 data-en='Industry and market analysis'>Анализ отрасли и рыночной среды</h3><p data-en='A deep understanding of context and the drivers of change'>Глубокое понимание контекста и факторов изменений</p></div></div>
+            <div class="step"><span class="num">02</span><div><h3 data-en='Technological, economic and social drivers'>Технологические, экономические и социальные драйверы</h3><p data-en='A systematic analysis of the key forces shaping the future'>Системный анализ ключевых сил, формирующих будущее</p></div></div>
+            <div class="step"><span class="num">03</span><div><h3 data-en='A map of risks, opportunities and solutions'>Карта рисков, возможностей и решений</h3><p data-en='We structure uncertainty and pinpoint areas of growth'>Структурируем неопределённость и выделяем точки роста</p></div></div>
+            <div class="step"><span class="num">04</span><div><h3 data-en='2–3 scenarios for the future market'>2—3 сценария будущего рынка</h3><p data-en='Several possible futures for different strategies'>Несколько вариантов будущего для разных стратегий</p></div></div>
+            <div class="step"><span class="num">05</span><div><h3 data-en='Recommendations on investment, products and strategy'>Рекомендации по инвестициям, продуктам и стратегии</h3><p data-en='Practical solutions for sustainable growth and competitive advantage'>Практические решения для устойчивого развития и конкурентного преимущества</p></div></div>
+          </div>
+        </div>
+        <a href="#" data-form-trigger="Сценарное моделирование" class="btn btn--primary" data-en='More about scenario modeling <span class="arr">→</span>'>Подробнее о сценарном моделировании <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. О АННЕ (объединённый) ============ -->
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="about-top">
+      <div class="about-left">
+        <h2 class="display" data-en='Anna Minakova — <span class="accent">a strategist of the future</span>'>Анна Минакова — <span class="accent">стратег будущего</span></h2>
+        <div class="research-list-title" data-en='Researches:'>Исследует:</div>
+        <ul class="check-list">
+          <li data-en='<span class="box"></span>The economy of the future'><span class="box"></span>Экономика будущего</li>
+          <li data-en='<span class="box"></span>Technological shifts'><span class="box"></span>Технологические сдвиги</li>
+          <li data-en='<span class="box"></span>The energy transition'><span class="box"></span>Энергетический переход</li>
+          <li data-en='<span class="box"></span>Cities and infrastructure'><span class="box"></span>Города и инфраструктуры</li>
+          <li data-en='<span class="box"></span>Human behaviour'><span class="box"></span>Поведение человека</li>
+          <li data-en='<span class="box"></span>New models of capital'><span class="box"></span>Новые модели капитала</li>
+        </ul>
+        <p class="result-note" data-en='The outcome of research — <b>strategic decisions for business.</b>'>Результат исследования — <b>стратегические решения для бизнеса.</b></p>
+      </div>
+      <div class="ph about-photo" data-label="assets/images/about-anna.jpg"></div>
+    </div>
+    <div class="facts-row">
+      <div class="fact" data-en='<div class="big">1,000,000+ m<sup>2</sup></div><p>of sustainable real estate</p>'><div class="big">1 000 000+ м<sup>2</sup></div><p>объектов устойчивой недвижимости</p></div>
+      <div class="fact" data-en='<div class="big">CLEVER</div><p>co-founder of Clever, the national green building certification system</p>'><div class="big">CLEVER</div><p>сооснователь национальной системы зелёной сертификации недвижимости «Клевер»</p></div>
+      <div class="fact" data-en='<div class="big">LEED · BREEAM · WELL · Fitwel</div><p>international licenses</p>'><div class="big">LEED · BREEAM · WELL · Fitwel</div><p>международные лицензии</p></div>
+      <div class="fact" data-en='<div class="big">BRICS</div><p>annual speaker at international forums</p>'><div class="big">BRICS</div><p>ежегодный спикер международных форумов</p></div>
+      <div class="fact" data-en='<div class="big">GPM Awards Russia 2025</div><p>winner of the AMP national competition Project Alliance / GPM Awards Russia</p>'><div class="big">GPM Awards Russia 2025</div><p>победитель Национального конкурса АМП «Проектный Альянс» / GPM Awards Russia</p></div>
+      <div class="fact" data-en='<div class="big">Palgrave Macmillan</div><p>author of international academic publications and books</p>'><div class="big">Palgrave Macmillan</div><p>автор международных научных публикаций и книг</p></div>
+      <div class="fact" data-en='<div class="big">British Higher School of Art and Design</div><p>lecturer</p>'><div class="big">Британская высшая школа дизайна</div><p>преподаватель</p></div>
+      <div class="fact" data-en='<div class="big">Alfa-Bank · Skolkovo</div><p>projects with developers and major corporations</p>'><div class="big">Альфа-Банк · Сколково</div><p>проекты с девелоперами и крупными корпорациями</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. ПРОЕКТЫ АННЫ ============ -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="projects-head">
+      <div>
+        <span class="eyebrow" data-en='Anna&#39;s projects'>Проекты Анны</span>
+        <h2 class="display" data-en='Not just analysing the future.<br>But building it.'>Не просто анализировать будущее.<br>Но и строить его.</h2>
+      </div>
+      <a href="#" class="link-arrow" data-en='View all projects <span>↗</span>'>Смотреть все проекты <span>↗</span></a>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="ph pimg" data-label="assets/images/project-clever.jpg"></div>
+        <div class="pbody">
+          <h3 data-en='Clever'>Клевер</h3>
+          <p class="ptag" data-en='A national green building certification system.'>Национальная система зелёной сертификации недвижимости.</p>
+          <p data-en='Co-founder of a system built to sustainably transform the real estate market and set new environmental standards.'>Сооснователь системы, созданной для устойчивой трансформации рынка недвижимости и новых стандартов среды.</p>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="ph pimg" data-label="assets/images/project-orbital.jpg"></div>
+        <div class="pbody">
+          <h3>Orbital Green</h3>
+          <p class="ptag" data-en='The space energy infrastructure of the future.'>Космическая энергетическая инфраструктура будущего.</p>
+          <p data-en='A project at the intersection of SpaceTech, ESG and energy, exploring space as a new source of sustainable power for Earth.'>Проект на стыке SpaceTech, ESG и энергетики, исследующий потенциал космоса как нового источника устойчивой энергии для Земли.</p>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="ph pimg" data-label="assets/images/project-metabuild.jpg"></div>
+        <div class="pbody">
+          <h3>Metabuild</h3>
+          <p class="ptag" data-en='A new logic for the future of construction and cities.'>Новая логика будущего строительства и городов.</p>
+          <p data-en='A project on how technology, new materials, energy and the changing urban environment will transform development over the coming decades.'>Проект о том, как технологии, новые материалы, энергия и изменение городской среды будут трансформировать девелопмент на горизонте десятилетий.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. ПУБЛИКАЦИИ И ВЫСТУПЛЕНИЯ ============ -->
+<section class="section pub" id="publications">
+  <div class="wrap">
+    <div class="pub-head">
+      <div>
+        <span class="eyebrow" data-en='Insights'>Инсайты</span>
+        <h2 data-en='Publications and talks'>Публикации и выступления</h2>
+      </div>
+      <a href="#" class="link-arrow" data-en='View all <span class="arr">→</span>'>Смотреть все <span class="arr">→</span></a>
+    </div>
+    <div class="pub-grid">
+      <article class="pub-card">
+        <div class="date" data-en='May 15, 2024'>15 мая 2024</div>
+        <h3 data-en='The future of work: key trends and skills'>Будущее труда: ключевые тренды и навыки</h3>
+        <p data-en='What changes lie ahead for the labour market over the next 10 years, and how to prepare for them.'>Какие изменения ждут рынок труда в ближайшие 10 лет и как к ним подготовиться.</p>
+        <a href="#" class="read-link" data-en='Read <span class="arr">→</span>'>Читать <span class="arr">→</span></a>
+      </article>
+      <article class="pub-card">
+        <div class="date" data-en='April 2, 2024'>02 апреля 2024</div>
+        <h3 data-en='Future scenarios: why business should build them'>Сценарии будущего: зачем бизнесу их строить</h3>
+        <p data-en='How scenario planning helps make better decisions under uncertainty.'>Как сценарное планирование помогает принимать лучшие решения в условиях неопределённости.</p>
+        <a href="#" class="read-link" data-en='Read <span class="arr">→</span>'>Читать <span class="arr">→</span></a>
+      </article>
+      <article class="pub-card">
+        <div class="date" data-en='March 20, 2024'>20 марта 2024</div>
+        <h3 data-en='Technology and society: a new balance'>Технологии и общество: новый баланс</h3>
+        <p data-en='How technology is reshaping society and the challenges this creates for business and government.'>Как технологии меняют общество и какие вызовы это создаёт для бизнеса и государства.</p>
+        <a href="#" class="read-link" data-en='Read <span class="arr">→</span>'>Читать <span class="arr">→</span></a>
+      </article>
+    </div>
+    <div class="cta-band">
+      <h3 data-en='Ready to discuss your challenges?'>Готовы обсудить ваши задачи?</h3>
+      <p data-en='Send a message and we will find solutions for your future.'>Напишите мне, и мы найдём решения для вашего будущего.</p>
+      <a href="#" data-form-trigger="" class="btn btn--primary" data-en='Discuss your project <span class="arr">→</span>'>Обсудить задачу <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. YOUTUBE / МЕДИА ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="youtube-grid">
+      <div class="yt-left">
+        <span class="eyebrow" data-en='YouTube / Media'>YouTube / Медиа</span>
+        <h2 data-en='People who <span class="accent">create the future</span>'>Люди, которые <span class="accent">создают будущее</span></h2>
+        <p class="desc" data-en='On her YouTube channel, Anna talks with entrepreneurs, scientists, investors, technology leaders and visionaries who are already shaping the new rules of the game.'>На YouTube-канале Анна разговаривает с предпринимателями, учёными, инвесторами, технологическими лидерами и визионерами, которые уже сегодня формируют новые правила игры.</p>
+        <div class="yt-themes-title" data-en='Topics'>Темы</div>
+        <div class="tag-row">
+          <span class="tag" data-en='<span class="hash">#</span> technology and AI'><span class="hash">#</span> технологии и ИИ</span>
+          <span class="tag" data-en='<span class="hash">#</span> energy and space'><span class="hash">#</span> энергия и космос</span>
+          <span class="tag" data-en='<span class="hash">#</span> the economy of the future'><span class="hash">#</span> экономика будущего</span>
+          <span class="tag" data-en='<span class="hash">#</span> leaders mindset'><span class="hash">#</span> мышление лидеров</span>
+          <span class="tag" data-en='<span class="hash">#</span> cities and new infrastructure'><span class="hash">#</span> города и новые инфраструктуры</span>
+        </div>
+        <p class="yt-note" data-en='No surface-level interviews. Only ideas that help you understand where the world is heading.'>Без поверхностных интервью. Только идеи, которые помогают понимать, куда движется мир.</p>
+        <a href="#" class="btn btn--yt" data-en='▶ Watch on YouTube <span class="arr arr--diag">↗</span>'>▶ Смотреть YouTube <span class="arr arr--diag">↗</span></a>
+      </div>
+      <div class="yt-videos">
+        <article class="ph yt-card" data-label="assets/images/yt-peskov.jpg">
+          <span class="yt-cat" data-en='Technology and AI'>Технологии и ИИ</span>
+          <h4 data-en='AI as the new infrastructure of civilisation'>ИИ как новая инфраструктура цивилизации</h4>
+          <div>
+            <div class="speaker" data-en='Dmitry Peskov'>Дмитрий Песков</div>
+            <div class="role" data-en='Founder and CEO of the GigaChat AI platform'>Основатель и CEO AI-платформы GigaChat</div>
+            <div class="dur"><span class="tri">▶</span> 1:02:45</div>
+          </div>
+        </article>
+        <article class="ph yt-card" data-label="assets/images/yt-kulik.jpg">
+          <span class="yt-cat" data-en='Energy and space'>Энергия и космос</span>
+          <h4 data-en='Space as a new source of energy'>Космос как новый источник энергии</h4>
+          <div>
+            <div class="speaker" data-en='Sergey Kulik'>Сергей Кулик</div>
+            <div class="role" data-en='Co-founder of Dauria Aerospace'>Сооснователь Dauria Aerospace</div>
+            <div class="dur"><span class="tri">▶</span> 58:30</div>
+          </div>
+        </article>
+        <article class="ph yt-card" data-label="assets/images/yt-mirkin.jpg">
+          <span class="yt-cat" data-en='The economy of the future'>Экономика будущего</span>
+          <h4 data-en='The new rules of the global economy'>Новые правила глобальной экономики</h4>
+          <div>
+            <div class="speaker" data-en='Yakov Mirkin'>Яков Миркин</div>
+            <div class="role" data-en='Economist, expert in global markets'>Экономист, эксперт по глобальным рынкам</div>
+            <div class="dur"><span class="tri">▶</span> 47:15</div>
+          </div>
+        </article>
+        <article class="ph yt-card" data-label="assets/images/yt-travkova.jpg">
+          <span class="yt-cat" data-en='Leaders mindset'>Мышление лидеров</span>
+          <h4 data-en='Leadership in an age of uncertainty'>Лидерство в эпоху неопределённости</h4>
+          <div>
+            <div class="speaker" data-en='Marina Travkova'>Марина Травкова</div>
+            <div class="role" data-en='Entrepreneur, investor, mentor'>Предприниматель, инвестор, ментор</div>
+            <div class="dur"><span class="tri">▶</span> 52:10</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. АННА — СПИКЕР ============ -->
+<section class="section speaker">
+  <div class="wrap">
+    <div class="speaker-top">
+      <div class="ph speaker-photo" data-label="assets/images/speaker-anna.jpg"></div>
+      <div class="speaker-right">
+        <span class="eyebrow" data-en='Insights from the stage'>Инсайты со сцены</span>
+        <h2 class="display" data-en='Anna on stage'>Анна — спикер</h2>
+        <p class="speaker-sub" data-en='Not motivation.<br>Thinking that <span class="accent">changes decisions.</span>'>Не мотивация.<br>Мышление, которое <span class="accent">меняет решения.</span></p>
+        <ul class="aud-card">
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 19a6 6 0 0112 0M15 19a5 5 0 016-4"/></svg><span data-en='Boards of directors'>Советы директоров</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></svg><span data-en='Corporations'>Корпорации</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg><span data-en='Private communities'>Закрытые сообщества</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0012 0M12 17v4"/></svg><span data-en='Forums and conferences'>Форумы и конференции</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l9-4 9 4-9 4zM7 11v4c0 1.5 2.5 3 5 3s5-1.5 5-3v-4"/></svg><span data-en='Universities'>Университеты</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21h16M5 21V10M19 21V10M4 10l8-6 8 6M9 21v-6h6v6"/></svg><span data-en='Development institutions'>Институты развития</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="speaker-shots">
+      <div class="ph shot" data-label="assets/images/speaker-brics.jpg" data-en='<div class="cap">BRICS 2024<br>Plenary session</div>'><div class="cap">BRICS 2024<br>Пленарная сессия</div></div>
+      <div class="ph shot" data-label="assets/images/speaker-gpm.jpg" data-en='<div class="cap">GPM Awards Russia<br>Panel discussion</div>'><div class="cap">GPM Awards Russia<br>Панельная дискуссия</div></div>
+      <div class="ph shot" data-label="assets/images/speaker-lecture.jpg" data-en='<div class="cap">Private lecture<br>for top management</div>'><div class="cap">Закрытая лекция<br>для топ-менеджмента</div></div>
+    </div>
+    <div class="speaker-bottom">
+      <div>
+        <div class="themes-title" data-en='Talk topics'>Темы выступлений</div>
+        <div class="theme-tags">
+          <span class="tag" data-en='the economy of the future'>экономика будущего</span>
+          <span class="tag" data-en='energy, AI and infrastructure'>энергия, ИИ и инфраструктуры</span>
+          <span class="tag" data-en='ESG as the new logic of business'>ESG как новая логика бизнеса</span>
+          <span class="tag" data-en='cities of the future'>города будущего</span>
+          <span class="tag" data-en='decision-making in an age of uncertainty'>принятие решений в эпоху неопределённости</span>
+          <span class="tag" data-en='new models of capital'>новые модели капитала</span>
+          <span class="tag" data-en='weak signals of the future'>слабые сигналы будущего</span>
+        </div>
+      </div>
+      <a href="#" data-form-trigger="Выступление" class="btn btn--primary" data-en='Invite Anna <span class="arr">→</span>'>Пригласить Анну <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. ИССЛЕДОВАНИЯ (R&D) ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="research-top">
+      <div>
+        <span class="eyebrow" data-en='R&amp;D, analytics and research'>R&amp;D, аналитика и исследования</span>
+        <h2 data-en='In-depth research into markets, industries and scenarios of change, 5 to 30 years ahead'>Глубокие исследования рынков, отраслей и сценариев изменений на 5—30 лет вперёд</h2>
+      </div>
+      <div class="research-actions">
+        <a href="#" data-form-trigger="Исследование R&amp;D" class="btn btn--primary" data-en='Request research <span class="arr">→</span>'>Запросить исследование <span class="arr">→</span></a>
+        <a href="#" class="btn btn--ghost" data-en='Learn more <span class="arr">→</span>'>Узнать подробнее <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="rd-tags">
+      <span class="rd-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20A7 7 0 014 13c0-5 7-9 7-9s7 4 7 9a7 7 0 01-7 7zM11 20v2"/></svg><span data-en='ESG and sustainable models'>ESG и устойчивые модели</span></span>
+      <span class="rd-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18"/><path d="M8 7h2M14 7h2M8 11h2M14 11h2"/></svg><span data-en='Development and smart cities'>Девелопмент и умные города</span></span>
+      <span class="rd-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span data-en='The energy of the future'>Энергетика будущего</span></span>
+      <span class="rd-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7.5 7.5L11 16M16.5 7.5L13 16"/></svg><span data-en='AI and the transformation of infrastructure'>ИИ и трансформация инфраструктур</span></span>
+      <span class="rd-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="2.5"/><circle cx="16" cy="9" r="2.5"/><path d="M3 19a5 5 0 0110 0M11 19a5 5 0 0110 0"/></svg><span data-en='Generational behaviour change'>Изменение поведения поколений</span></span>
+      <span class="rd-tag"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l5-5 4 4 8-8M16 4h4v4"/></svg><span data-en='High-uncertainty markets'>Рынки высокой неопределённости</span></span>
+    </div>
+    <div class="research-feature">
+      <div class="ph diploma" data-label="assets/images/diploma-gpm.jpg"></div>
+      <div>
+        <span class="eyebrow" data-en='Research'>Исследование</span>
+        <h3>The Future is Built:<br>Sustainable Construction Trend Watching Foresight 2050</h3>
+        <p class="rf-desc" data-en='A long-term study of the future of the construction industry to 2050. It identifies key trends and risks and defines tools for assessing viability and scenarios for sustainable development.'>Долгосрочное исследование будущего строительной отрасли до 2050 года. Выявляет ключевые тренды и риски, определяет инструменты оценки жизнеспособности и сценарии устойчивого развития.</p>
+        <div class="award-box">
+          <svg class="trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h12v3a6 6 0 01-12 0zM6 5H3v2a3 3 0 003 3M18 5h3v2a3 3 0 01-3 3M9 16h6M12 14v2M8 20h8"/></svg>
+          <div class="place" data-en='<b>1st place</b>GPM Awards Russia 2025<br><small>in the Innovative Research category</small>'><b>1 место</b>GPM Awards Russia 2025<br><small>в категории «Инновационные исследования»</small></div>
+          <div class="award-note" data-en='The project was recognised for its contribution to sustainable construction and shaping the future of the industry.'>Проект отмечен за вклад в развитие устойчивого строительства и формирование будущего отрасли.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. КНИГИ ============ -->
+<section class="section books">
+  <div class="wrap">
+    <div class="books-grid">
+      <div class="books-left">
+        <span class="eyebrow" data-en='Books'>Книги</span>
+        <h2 class="display" data-en='Research that becomes <span class="accent">a tool for decisions</span>'>Исследования, которые становятся <span class="accent">инструментами решений</span></h2>
+        <div class="book-item"><h3>Rethinking Water and Energy for a Sustainable Future</h3><span class="arr">→</span></div>
+        <div class="book-item"><h3>Energy and Climate Solutions: Renewable Energy, Energy Efficiency, and Low-Carbon Transitions</h3><span class="arr">→</span></div>
+        <div class="book-item"><h3 data-en='On the future of energy, sustainable systems and the transformation of the global economy'>О будущем энергии, устойчивых систем и трансформации глобальной экономики</h3><span class="arr">→</span></div>
+      </div>
+      <div class="ph books-visual" data-label="assets/images/books.jpg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. METABUILD ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="metabuild-grid">
+      <div class="ph metabuild-img" data-label="assets/images/metabuild-city.jpg"></div>
+      <div class="metabuild-body">
+        <span class="eyebrow" data-en='R&amp;D project'>R&amp;D проект</span>
+        <h2>MetaBuild</h2>
+        <p class="mb-sub" data-en='From researching the future — to a decision-making technology'>От исследования будущего — к технологии принятия решений</p>
+        <p data-en='MetaBuild is an intelligent system for assessing, managing and forecasting the viability of real estate, built on a foresight study of the construction industry to 2050.'>MetaBuild — интеллектуальная система оценки, управления и прогнозирования жизнеспособности недвижимости, созданная на основе форсайт-исследования строительной отрасли до 2050 года.</p>
+        <p data-en='The project combines global trends, digital technology and risk analytics, turning complex data into a strategic decision-making tool for developers, investors, banks and government.'>Проект объединяет глобальные тренды, цифровые технологии и риск-аналитику, превращая сложные данные в инструмент стратегических решений для девелоперов, инвесторов, банков и государства.</p>
+        <div class="tech-title" data-en='Technology'>Технологии</div>
+        <div class="tech-grid">
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 3v18M4 7.5l8 4.5 8-4.5"/></svg>BIM</span>
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="7" height="16"/><rect x="13" y="8" width="7" height="12"/></svg>Digital Twin</span>
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3a3 3 0 00-3 3 3 3 0 00-2 5 3 3 0 001 5 3 3 0 005 2V3zM15 3a3 3 0 013 3 3 3 0 012 5 3 3 0 01-1 5 3 3 0 01-5 2"/></svg>AI Risk Intelligence</span>
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13a9 9 0 0114 0M8 16a5 5 0 018 0"/><circle cx="12" cy="19" r="1.5" fill="currentColor"/></svg>IoT</span>
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>GIS</span>
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 16a4 4 0 010-8 5 5 0 019-2 4 4 0 011 8M9 19l1-2M13 19l1-2M11 21l1-2"/></svg>Climate Data</span>
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20V10M9 20V4M14 20v-8M19 20V8"/></svg>Market Data</span>
+          <span class="tech-chip"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12a8 8 0 11-2.3-5.6M20 4v4h-4"/></svg>Lifecycle Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Anna Minakova<span class="dot">.</span></div>
+        <p data-en='Strategic thinking and future scenarios for companies building a sustainable tomorrow.'>Стратегическое мышление и сценарии будущего для компаний, которые строят устойчивое завтра.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-en='Navigation'>Навигация</h5>
+        <ul>
+          <li><a href="#about" data-en='About'>Обо мне</a></li>
+          <li><a href="#services" data-en='Services'>Услуги</a></li>
+          <li><a href="#projects" data-en='Projects'>Проекты</a></li>
+          <li><a href="#publications" data-en='Publications'>Публикации</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-en='Focus areas'>Направления</h5>
+        <ul>
+          <li><a href="#services" data-en='Scenario modeling'>Сценарное моделирование</a></li>
+          <li><a href="#" data-en='Research and R&amp;D'>Исследования и R&amp;D</a></li>
+          <li><a href="#" data-en='Talks'>Выступления</a></li>
+          <li><a href="#" data-en='Books'>Книги</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-cta">
+        <h5 data-en='Contacts'>Контакты</h5>
+        <a href="#" data-form-trigger="" class="btn btn--primary" data-en='Discuss your project <span class="arr">→</span>'>Обсудить задачу <span class="arr">→</span></a>
+        <p class="footer-contact">Email: <a href="mailto:hello@minakova.com">hello@minakova.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-en='© 2026 Anna Minakova. Strategic Foresight. All rights reserved.'>© 2026 Анна Минакова. Strategic Foresight. Все права защищены.</span>
+      <div class="socials">
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.5-5a3 3 0 00-2-2C18.5 4.5 12 4.5 12 4.5s-6.5 0-8.5.5a3 3 0 00-2 2C1 8.5 1 12 1 12s0 3.5.5 5a3 3 0 002 2c2 .5 8.5.5 8.5.5s6.5 0 8.5-.5a3 3 0 002-2c.5-1.5.5-5 .5-5zM10 15.5v-7l6 3.5z"/></svg></a>
+        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3l-3.3 15.6c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 9-8.1c.4-.3-.1-.5-.6-.2L6.1 13.6l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.7 1z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="formModal" role="dialog" aria-modal="true" aria-label="Форма заявки">
+  <div class="modal">
+    <button class="modal-close" data-close="" aria-label="Закрыть">✕</button>
+    <div class="modal-body">
+      <div class="modal-form">
+        <span class="eyebrow" data-en='Request'>Заявка</span>
+        <h3 data-en='Let us discuss your project'>Обсудим вашу задачу</h3>
+        <p class="m-sub" data-en='Describe your request and I will get back to you within one business day.'>Опишите запрос — я свяжусь с вами в течение одного рабочего дня.</p>
+        <form novalidate="">
+          <div class="form-grid">
+            <div class="field"><label data-en='Name *'>Имя *</label><input name="name" required="" data-en-ph='How should I address you' placeholder="Как к вам обращаться"></div>
+            <div class="field"><label data-en='Email or phone *'>Email или телефон *</label><input name="contact" required="" data-en-ph='For contact' placeholder="Для связи"></div>
+            <div class="field full"><label data-en='Company / role'>Компания / роль</label><input name="company" data-en-ph='Organisation and position' placeholder="Организация и должность"></div>
+            <div class="field full"><label data-en='Type of request'>Тип запроса</label>
+              <select name="type">
+                <option data-en='Scenario modeling'>Сценарное моделирование</option>
+                <option data-en='R&amp;D research'>Исследование R&amp;D</option>
+                <option data-en='Speaking engagement'>Выступление</option>
+                <option data-en='Other'>Другое</option>
+              </select>
+            </div>
+            <div class="field full"><label data-en='Your task'>Задача</label><textarea name="message" data-en-ph='Briefly about the task, goals and context' placeholder="Коротко о задаче, целях и контексте"></textarea></div>
+          </div>
+          <button type="submit" class="btn btn--primary" data-en='Send request <span class="arr">→</span>'>Отправить заявку <span class="arr">→</span></button>
+          <p class="form-note" data-en='By clicking Send, you consent to the processing of personal data.'>Нажимая «Отправить», вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+      </div>
+      <div class="modal-success">
+        <div class="success-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"></path></svg></div>
+        <h3 data-en='Request sent'>Заявка отправлена</h3>
+        <p class="m-sub" data-en='Thank you! I will be in touch shortly.'>Спасибо! Я свяжусь с вами в ближайшее время.</p>
+        <button class="btn btn--ghost" data-reset="" data-en='Close'>Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.body.classList.add('anim-ready');
+
+  // ---- Preloader ----
+  var pre = document.getElementById('preloader');
+  var pct = document.getElementById('prePct');
+  if (pre) {
+    if (pct) {
+      var n = 0;
+      var iv = setInterval(function(){
+        n += Math.max(1, Math.round((100 - n) / 7));
+        if (n >= 100) { n = 100; clearInterval(iv); }
+        pct.textContent = n;
+      }, 80);
+    }
+    setTimeout(function(){ pre.classList.add('hide'); }, 2150);
+    setTimeout(function(){ pre.style.display = 'none'; }, 3100);
+  }
+
+  // ---- Scroll progress + header shrink ----
+  var prog = document.getElementById('scrollProgress');
+  var header = document.querySelector('.site-header');
+  function onScroll(){
+    var h = document.documentElement;
+    var sc = h.scrollTop || document.body.scrollTop;
+    var max = h.scrollHeight - h.clientHeight;
+    if (prog) prog.style.width = (max > 0 ? (sc / max) * 100 : 0) + '%';
+    if (header) header.classList.toggle('scrolled', sc > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- Burger ----
+  var burger = document.querySelector('.burger');
+  if (burger) burger.addEventListener('click', function(){
+    var nav = document.querySelector('.main-nav');
+    if (nav) nav.classList.toggle('open');
+  });
+  document.querySelectorAll('.main-nav a').forEach(function(a){
+    a.addEventListener('click', function(){
+      var nav = document.querySelector('.main-nav');
+      if (nav) nav.classList.remove('open');
+    });
+  });
+
+  // ---- Reveal on scroll ----
+  if (!reduce && 'IntersectionObserver' in window) {
+    var sel = '.section-head, .hero-text > *, .hero-visual, .modeling-visual, .modeling-body > *, .fact-card, .strategist-left > *, .check-list li, .connect-text > *, .connect-visual, .stat, .projects-head, .project-card, .pub-head, .pub-card, .cta-band, .yt-left > *, .yt-card, .speaker-photo, .speaker-right > *, .shot, .speaker-bottom > *, .research-top > *, .rd-tag, .research-feature, .books-left > *, .book-item, .books-visual, .metabuild-img, .metabuild-body > *, .tech-chip, .footer-brand, .footer-col';
+    var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+    els.forEach(function(e){ e.classList.add('reveal'); });
+    document.querySelectorAll('.facts-grid, .projects-grid, .pub-grid, .yt-videos, .speaker-shots, .rd-tags, .tech-grid, .stats-row, .check-list, .footer-top').forEach(function(g){
+      Array.prototype.slice.call(g.children).forEach(function(c, i){
+        if (c.classList.contains('reveal')) c.dataset.rd = i * 65;
+      });
+    });
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (en.isIntersecting) {
+          en.target.style.transitionDelay = (en.target.dataset.rd || 0) + 'ms';
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  }
+
+  // ---- Animated counters (15+, 100+, ...) ----
+  function animateCount(el){
+    var raw = el.textContent.trim();
+    var m = raw.match(/(\d[\d\s]*)/);
+    if (!m) return;
+    var target = parseInt(m[1].replace(/\s/g, ''), 10);
+    var prefix = raw.slice(0, m.index);
+    var suffix = raw.slice(m.index + m[1].length);
+    if (reduce) return;
+    var dur = 1300, t0 = performance.now();
+    function step(t){
+      var p = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(e * target) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (en.isIntersecting) { animateCount(en.target); cio.unobserve(en.target); }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.stat .num').forEach(function(c){ cio.observe(c); });
+  }
+
+  // ---- Animated driver bars (87/73/62/48%) ----
+  var mv = document.querySelector('.modeling-visual');
+  if (mv && !reduce && 'IntersectionObserver' in window) {
+    var bars = Array.prototype.slice.call(mv.querySelectorAll('.bar-fill'));
+    var ws = bars.map(function(b){ return b.style.width; });
+    bars.forEach(function(b){ b.style.width = '0%'; b.style.transition = 'width 1.1s cubic-bezier(.22,1,.36,1)'; });
+    var bio = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (en.isIntersecting) {
+          bars.forEach(function(b, i){ setTimeout(function(){ b.style.width = ws[i]; }, 150 + i * 130); });
+          bio.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    bio.observe(mv);
+  }
+
+  // ---- Modal form ----
+  var overlay = document.getElementById('formModal');
+  if (overlay) {
+    var body = overlay.querySelector('.modal-body');
+    var form = overlay.querySelector('form');
+    var typeSel = overlay.querySelector('select[name=type]');
+    function openModal(type){
+      if (type && typeSel) {
+        Array.prototype.slice.call(typeSel.options).forEach(function(o){
+          if (o.textContent.replace('&amp;', '&') === type || o.value === type) typeSel.selectedIndex = o.index;
+        });
+      }
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      var fn = overlay.querySelector('input[name=name]');
+      setTimeout(function(){ if (fn) fn.focus(); }, 130);
+    }
+    function closeModal(){
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-form-trigger]').forEach(function(b){
+      b.addEventListener('click', function(e){ e.preventDefault(); openModal(b.dataset.formTrigger); });
+    });
+    overlay.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', closeModal); });
+    overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
+    if (form) form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      body.classList.add('done');
+    });
+    var reset = overlay.querySelector('[data-reset]');
+    if (reset) reset.addEventListener('click', function(){
+      closeModal();
+      setTimeout(function(){ body.classList.remove('done'); if (form) form.reset(); }, 350);
+    });
+  }
+
+  // ---- Steps carousel (progress line + glowing dot + active highlight) ----
+  var stepsTrack = document.querySelector('.steps-track');
+  if (stepsTrack) {
+    var stepsFill = document.querySelector('.steps-progress-fill');
+    var stepCards = Array.prototype.slice.call(stepsTrack.querySelectorAll('.step'));
+    function updateSteps(){
+      var max = stepsTrack.scrollWidth - stepsTrack.clientWidth;
+      var p = max > 0 ? stepsTrack.scrollLeft / max : 0;
+      if (p < 0) p = 0; if (p > 1) p = 1;
+      var n = stepCards.length;
+      var idx = n > 1 ? Math.round(p * (n - 1)) : 0;
+      if (idx < 0) idx = 0;
+      if (idx > n - 1) idx = n - 1;
+      // line is divided into n equal parts; the active step fills (idx+1)/n
+      if (stepsFill) stepsFill.style.width = ((idx + 1) / n * 100) + '%';
+      stepCards.forEach(function(c, i){ c.classList.toggle('is-active', i === idx); });
+    }
+    stepsTrack.addEventListener('scroll', updateSteps, { passive: true });
+    window.addEventListener('resize', updateSteps);
+    updateSteps();
+
+    // Mouse drag-to-scroll for desktop (touch uses native scrolling)
+    var sDown = false, sStartX = 0, sStartLeft = 0, sMoved = false;
+    stepsTrack.addEventListener('pointerdown', function(e){
+      if (e.pointerType !== 'mouse') return;
+      sDown = true; sMoved = false;
+      sStartX = e.clientX; sStartLeft = stepsTrack.scrollLeft;
+      stepsTrack.classList.add('dragging');
+    });
+    stepsTrack.addEventListener('pointermove', function(e){
+      if (!sDown) return;
+      var dx = e.clientX - sStartX;
+      if (Math.abs(dx) > 3) sMoved = true;
+      stepsTrack.scrollLeft = sStartLeft - dx;
+    });
+    function endStepsDrag(){
+      if (!sDown) return;
+      sDown = false;
+      stepsTrack.classList.remove('dragging');
+      updateSteps();
+    }
+    stepsTrack.addEventListener('pointerup', endStepsDrag);
+    stepsTrack.addEventListener('pointerleave', endStepsDrag);
+    stepsTrack.addEventListener('pointercancel', endStepsDrag);
+    // Prevent accidental link/text drag selection while dragging
+    stepsTrack.addEventListener('click', function(e){ if (sMoved) { e.preventDefault(); e.stopPropagation(); } }, true);
+  }
+
+  // ---- Language switch (RU / EN) ----
+  var langToggle = document.getElementById('langToggle');
+  if (langToggle) {
+    var titles = {
+      ru: 'Анна Минакова — Strategic Foresight',
+      en: 'Anna Minakova — Strategic Foresight'
+    };
+    var descs = {
+      ru: 'Стратегическое мышление и сценарии будущего для компаний, которые создают ценность и строят устойчивое завтра.',
+      en: 'Strategic thinking and future scenarios for companies that create value and build a sustainable tomorrow.'
+    };
+    function setLang(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        if (el.dataset.ru === undefined) el.dataset.ru = el.innerHTML;
+        el.innerHTML = (lang === 'en') ? el.dataset.en : el.dataset.ru;
+      });
+      document.querySelectorAll('[data-en-ph]').forEach(function(el){
+        if (el.dataset.ruPh === undefined) el.dataset.ruPh = el.getAttribute('placeholder') || '';
+        el.setAttribute('placeholder', (lang === 'en') ? el.dataset.enPh : el.dataset.ruPh);
+      });
+      document.querySelectorAll('[data-en-label]').forEach(function(el){
+        if (el.dataset.ruLabel === undefined) el.dataset.ruLabel = el.getAttribute('data-label') || '';
+        el.setAttribute('data-label', (lang === 'en') ? el.dataset.enLabel : el.dataset.ruLabel);
+      });
+      document.title = titles[lang] || titles.ru;
+      var md = document.querySelector('meta[name=description]');
+      if (md) md.setAttribute('content', descs[lang] || descs.ru);
+      langToggle.querySelectorAll('[data-lang]').forEach(function(sp){
+        sp.classList.toggle('on', sp.dataset.lang === lang);
+      });
+    }
+    langToggle.querySelectorAll('[data-lang]').forEach(function(sp){
+      sp.addEventListener('click', function(){ setLang(sp.dataset.lang); });
+    });
+  }
+})();
+</script>
+</body>
+</html>

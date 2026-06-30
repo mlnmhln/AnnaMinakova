@@ -267,6 +267,7 @@ ul { list-style: none; }
 .hero h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); margin-bottom: 28px; }
 .hero-lead { color: var(--text-2); font-size: 1.05rem; max-width: 30ch; margin-bottom: 38px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 16px; }
+.yt-cta { display: flex; flex-wrap: wrap; gap: 16px; }
 .hero-visual { position: relative; width: 100%; justify-self: center; }
 .hero-photo { aspect-ratio: 3/3.4; width: 100%; object-fit: cover; object-position: center top; background: var(--bg); -webkit-mask-image: linear-gradient(to right, transparent 0, #000 35%, #000 65%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 22%, #000 72%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent 0, #000 35%, #000 65%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 22%, #000 72%, transparent 100%); mask-composite: intersect; }
 .hero-quote {
@@ -285,12 +286,20 @@ ul { list-style: none; }
   border-top: 1px solid var(--accent);
   border-bottom: 1px solid var(--border);
   margin-top: clamp(40px,5vw,64px);
+  margin-inline: var(--gut);
 }
 .hero-strip .wrap {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  padding-inline: 0;
 }
 .hero-strip li {
+  border-right: 1px solid var(--border);
+  min-height: 92px;
+}
+.hero-strip li:last-child { border-right: 0; }
+.hero-strip li,
+.hero-strip a {
   font-family: var(--font-display);
   text-transform: uppercase;
   font-weight: 600;
@@ -298,17 +307,26 @@ ul { list-style: none; }
   line-height: 1.08;
   letter-spacing: 0.03em;
   color: var(--text-2);
-  padding: 28px clamp(14px,1.5vw,22px);
-  border-right: 1px solid var(--border);
+  text-decoration: none;
+}
+.hero-strip li,
+.hero-strip a {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 92px;
 }
-.hero-strip li:last-child { border-right: 0; }
-.hero-strip li { transition: color 0.25s var(--ease); }
-.hero-strip li:hover { color: var(--accent); }
+.hero-strip li { min-height: 92px; }
+.hero-strip a {
+  width: 100%;
+  height: 100%;
+  min-height: 92px;
+  padding: 28px clamp(14px,1.5vw,22px);
+  color: inherit;
+  transition: color 0.25s var(--ease);
+}
+.hero-strip li.plain { padding: 28px clamp(14px,1.5vw,22px); }
+.hero-strip a:hover { color: var(--accent); }
 
 /* ============================================
    SECTION SHELL
@@ -416,7 +434,7 @@ ul { list-style: none; }
 .scn-row b { color: var(--text); }
 .scn-row.hot b { color: var(--accent); }
 
-.modeling-body { display: flex; flex-direction: column; }
+.modeling-body { display: flex; flex-direction: column; min-width: 0; }
 .modeling-body .lead { color: var(--text-2); font-size: 1.05rem; max-width: 46ch; margin-bottom: 40px; margin-left: 0; }
 .modeling-title {
   font-size: clamp(2rem, 4.4vw, 3.5rem);
@@ -434,6 +452,7 @@ ul { list-style: none; }
 .steps-carousel {
   margin-top: 8px;
   position: relative;   /* anchor for the absolutely-positioned line */
+  min-width: 0;
 }
 .steps-progress {
   position: absolute;
@@ -760,7 +779,6 @@ ul { list-style: none; }
   width: max-content;
   animation: trustScroll 42s linear infinite;
 }
-.trust-logos:hover .trust-logos-track { animation-play-state: paused; }
 @keyframes trustScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -1061,7 +1079,6 @@ ul { list-style: none; }
   width: max-content;
   animation: marqueeScroll 32s linear infinite;
 }
-.theme-marquee:hover .theme-marquee-track { animation-play-state: paused; }
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -1329,12 +1346,30 @@ html[lang="en"] .ru-only { display: none; }
   .hero-grid, .modeling-grid, .about-top,
   .youtube-grid, .speaker-top, .books-grid, .metabuild-grid,
   .research-feature, .trust-top { grid-template-columns: 1fr; }
+  /* remove extra inner padding so main text aligns to the standard side margin;
+     the award-box keeps its own padding regardless */
+  .research-feature { padding: 0; }
+  .rd-tags { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .rd-tag { padding-left: 18px; position: relative; }
+  .rd-tag:not(:last-child)::after { content: none; }
+  .rd-tag::before {
+    content: "•";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+  }
   /* about block: photo first, then text — matches modeling block's photo-then-text order */
-  .about-photo { order: -1; }
+  .about-photo { order: -1; aspect-ratio: 0.93; height: auto; min-height: 0; }
+  .modeling-visual { aspect-ratio: 0.71; height: auto; min-height: 0; }
+  .speaker-photo { height: auto; max-height: none; min-height: 0; aspect-ratio: 0.75; }
+  .research-photo { min-height: 0; aspect-ratio: 1; }
+  .metabuild-img { height: auto; min-height: 0; aspect-ratio: 0.9; }
   .facts-row { grid-template-columns: repeat(2, 1fr); }
   .hero-quote { position: static; max-width: none; margin-top: 24px; }
   .hero-strip .wrap { grid-template-columns: repeat(3,1fr); }
-  .hero-strip li { padding: 22px clamp(14px,2vw,20px); min-height: 84px; }
+  .hero-strip li { min-height: 84px; }
+  .hero-strip li.plain { padding: 22px clamp(14px,2vw,20px); }
+  .hero-strip a { padding: 22px clamp(14px,2vw,20px); min-height: 84px; }
   .hero-strip li:nth-child(3n) { border-right: 0; }
   .hero-strip li:nth-child(n+4) { border-top: 1px solid var(--border); }
   .projects-grid { grid-template-columns: 1fr; }
@@ -1354,6 +1389,13 @@ html[lang="en"] .ru-only { display: none; }
   /* modal: tighter padding on tablet */
   .modal { padding: clamp(22px,3vw,40px); }
 }
+@media (max-width: 759px) {
+  /* single-column layout only: restore breathing room between the modeling
+     section and the next section's photo — the desktop zero-gap
+     corner-touch stitching only applies in the side-by-side layout (≥760px) */
+  .modeling { padding-bottom: clamp(28px, 6vw, 40px); }
+  .modeling .wrap { padding-bottom: clamp(28px, 6vw, 40px); }
+}
 @media (min-width: 760px) {
   .modeling.section--fit {
     min-height: 0;
@@ -1371,12 +1413,14 @@ html[lang="en"] .ru-only { display: none; }
     width: calc(100% + 1px);
     min-width: 0;
     justify-self: end;
+    aspect-ratio: auto;
   }
   .about-photo {
     width: calc(100% + 1px);
     min-width: 0;
     margin-left: -1px;
     justify-self: start;
+    aspect-ratio: auto;
   }
   .modeling-body {
     min-width: 0;
@@ -1413,7 +1457,9 @@ html[lang="en"] .ru-only { display: none; }
   .hero-quote cite { margin-top: 10px; }
   .hero-text { order: 0; }
   .hero-strip .wrap { grid-template-columns: 1fr 1fr; }
-  .hero-strip li { padding: 20px 16px; min-height: 78px; }
+  .hero-strip li { min-height: 78px; }
+  .hero-strip li.plain { padding: 20px 16px; }
+  .hero-strip a { padding: 20px 16px; min-height: 78px; }
   .hero-strip li:nth-child(3n) { border-right: 1px solid var(--border); }
   .hero-strip li:nth-child(2n) { border-right: 0; }
   .hero-strip li:nth-child(n+3) { border-top: 1px solid var(--border); }
@@ -1433,8 +1479,8 @@ html[lang="en"] .ru-only { display: none; }
   }
   .yt-videos::-webkit-scrollbar { display: none; }
   .yt-videos .yt-card {
-    flex: 0 0 80vw;
-    max-width: 80vw;
+    flex: 0 0 64vw;
+    max-width: 64vw;
     scroll-snap-align: start;
   }
   /* peek arrow indicator */
@@ -1468,14 +1514,14 @@ html[lang="en"] .ru-only { display: none; }
     color: var(--text-3);
     margin-top: 10px;
   }
-  .yt-swipe-hint svg { color: var(--accent); }
+  .yt-swipe-hint svg { width: 44px; height: 24px; color: var(--text-2); }
   .facts-row { grid-template-columns: 1fr 1fr; }
-  .about-photo { aspect-ratio: 3/2; height: auto; min-height: 0; }
+  .about-photo { aspect-ratio: 0.93; height: auto; min-height: 0; }
   .steps-track { --per-view: 1.25; --gap: 18px; }
   .stats-row { grid-template-columns: 1fr 1fr; }
   .tech-grid { grid-template-columns: 1fr 1fr; }
   .project-card { grid-template-columns: 1fr; }
-  .project-card .pimg, .project-card .pimg.ph { min-height: 220px; }
+  .project-card .pimg, .project-card .pimg.ph { min-height: 0; height: auto; aspect-ratio: 4/3; }
   .footer-top, .footer-bottom { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2.4rem; }
   .form-grid { grid-template-columns: 1fr; }
@@ -1485,16 +1531,14 @@ html[lang="en"] .ru-only { display: none; }
   .modal h3 { font-size: 1.4rem; }
   .modal .m-sub { font-size: 0.88rem; margin-bottom: 18px; }
   .yt-card h4 { max-width: 80%; }
-  .speaker-photo { min-height: 260px; height: auto; }
   .metabuild-section { padding: clamp(64px, 9vw, 130px) 0; }
   .metabuild-grid { min-height: auto; }
-  .metabuild-img { min-height: 380px; height: auto; }
   .metabuild-body { padding-top: 24px; }
   /* allow long button labels to wrap instead of overflowing */
   .btn { white-space: normal; padding: 16px 22px; }
   /* dashboard mini-cards stack so bars don't overflow */
   .mini-cards { grid-template-columns: 1fr; }
-  .modeling-visual { padding: 22px; min-height: 280px; }
+  .modeling-visual { padding: 22px; min-height: 0; aspect-ratio: 0.71; }
   .mini-cards { grid-template-columns: 1fr; }
   /* section headers + "view all" link wrap cleanly */
   .projects-head, .pub-head { flex-wrap: wrap; align-items: flex-start; }
@@ -1511,7 +1555,8 @@ html[lang="en"] .ru-only { display: none; }
   .research-actions .btn { flex: 1 1 auto; justify-content: center; }
   /* CTAs full width on phones so they're easy to tap */
   .hero-cta { flex-direction: column; align-items: stretch; }
-  .hero-cta .btn, .connect-cta .btn { width: 100%; justify-content: center; }
+  .yt-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn, .connect-cta .btn, .yt-cta .btn { width: 100%; justify-content: center; }
   .modeling-body > .btn {
     width: 100%;
     align-self: stretch;
@@ -1520,9 +1565,6 @@ html[lang="en"] .ru-only { display: none; }
     margin-top: 26px;
   }
   /* diploma image not too tall on mobile */
-  .research-photo {
-    min-height: 300px;
-  }
   .research-photo > img {
     transform: scale(1.08);
   }
@@ -1530,7 +1572,7 @@ html[lang="en"] .ru-only { display: none; }
   /* award box icon centers */
   .award-box .trophy { margin: 0 auto; }
   /* books visual sits above/below cleanly */
-  .books-visual { aspect-ratio: 16/10; }
+  .books-visual { aspect-ratio: 4/3; }
   /* speaker shots single column already; give them a sensible ratio */
   .shot { aspect-ratio: 4/3; }
   /* trust-stats: tighter on mobile, keep 2-col */
@@ -1541,8 +1583,8 @@ html[lang="en"] .ru-only { display: none; }
   /* facts-row: reduce font on narrow screens */
   .fact .big { font-size: 1.2rem; }
   .fact p { font-size: 0.82rem; }
-  /* project-card image when stacked */
-  .project-card .pimg { min-height: 200px; height: 200px; }
+  /* project-card image when stacked — scale proportionally, not cropped to fixed height */
+  .project-card .pimg { min-height: 0; height: auto; aspect-ratio: 4/3; }
   /* YouTube cards — keep 1:1 ratio in carousel */
   .yt-card { aspect-ratio: 1/1; }
   /* steps carousel — 1 card almost full width */
@@ -1737,12 +1779,12 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
 </section>
 <div class="hero-strip">
   <ul class="wrap">
-    <li data-en='Strategic advisory'>Стратегическое сопровождение</li>
-    <li data-en='Talks and lectures'>Выступления и учебные лекции</li>
-    <li data-en='Analytics and research, R&amp;D'>Аналитика и исследования, R&amp;D</li>
-    <li data-en='Anna&#39;s technology products'>Технологические продукты Анны</li>
-    <li data-en='Podcasts and interviews with leaders'>Подкасты, интервью с лидерами</li>
-    <li data-en='Educational programs'>Образовательные программы</li>
+    <li><a href="#services" data-en='Strategic advisory'>Стратегическое сопровождение</a></li>
+    <li><a href="#speaking" data-en='Talks and lectures'>Выступления и учебные лекции</a></li>
+    <li><a href="#research" data-en='Analytics and research, R&amp;D'>Аналитика и исследования, R&amp;D</a></li>
+    <li><a href="#metabuild" data-en='Anna&#39;s technology products'>Технологические продукты Анны</a></li>
+    <li><a href="#podcast" data-en='Podcasts and interviews with leaders'>Подкасты, интервью с лидерами</a></li>
+    <li class="plain" data-en='Educational programs'>Образовательные программы</li>
   </ul>
 </div>
 
@@ -1837,7 +1879,7 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
     </div>
     <div class="facts-row">
       <div class="fact" data-en='<div class="big">1,000,000+ m<sup>2</sup></div><p>of sustainable real estate</p>'><div class="big">1 000 000+ м<sup>2</sup></div><p>объектов устойчивой недвижимости</p></div>
-      <div class="fact" data-en='<div class="big">CLEVER</div><p>co-founder of Clever, the national green building certification system</p>'><div class="big">CLEVER</div><p>сооснователь национальной системы зелёной сертификации недвижимости «Клевер»</p></div>
+      <div class="fact" data-en='<div class="big">CLEVER</div><p>co-founder of Clever, the national green building certification system</p>'><div class="big">КЛЕВЕР</div><p>сооснователь национальной системы зелёной сертификации недвижимости «Клевер»</p></div>
       <div class="fact" data-en='<div class="big">LEED · BREEAM · WELL · Fitwel</div><p>international licenses</p>'><div class="big">LEED · BREEAM · WELL · Fitwel</div><p>международные лицензии</p></div>
       <div class="fact" data-en='<div class="big">BRICS</div><p>annual speaker at international forums</p>'><div class="big">BRICS</div><p>ежегодный спикер международных форумов</p></div>
       <div class="fact" data-en='<div class="big">GPM Awards Russia 2025</div><p>winner of the AMP national competition Project Alliance / GPM Awards Russia</p>'><div class="big">GPM Awards Russia 2025</div><p>победитель Национального конкурса АМП «Проектный Альянс» / GPM Awards Russia</p></div>
@@ -1984,7 +2026,7 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
       </a>
       <a href="https://minakovanna.ru/news/intervyu-dlya-konferenczii-oon-po-izmeneniyu-klimata-2023-goda/" target="_blank" rel="noopener" class="pub-card">
         <div class="source">minakovanna.ru</div><div class="date" data-en='2023'>2023</div>
-        <h3 data-en='Interview for the 2023 UN Climate Conference: ESG and Klever'>Интервью для Конференции ООН по климату 2023: ESG и Klever</h3>
+        <h3 data-en='Interview for the 2023 UN Climate Conference: ESG and Clever'>Интервью для Конференции ООН по климату 2023: ESG и Клевер</h3>
         <span class="read-link" data-en='Read <span class="arr">→</span>'>Читать <span class="arr">→</span></span>
       </a>
       <a href="https://youtu.be/BHEWehFK43s" target="_blank" rel="noopener" class="pub-card">
@@ -1999,7 +2041,7 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
       </a>
       <a href="https://forum-100.ru/spikery/minakova/" target="_blank" rel="noopener" class="pub-card">
         <div class="source">100+ TechnoBuild</div><div class="date" data-en='2023'>2023</div>
-        <h3 data-en='Russian Klever real estate certification system'>Российская система сертификации недвижимости Клевер</h3>
+        <h3 data-en='Russian Clever real estate certification system'>Российская система сертификации недвижимости Клевер</h3>
         <span class="read-link" data-en='Read <span class="arr">→</span>'>Читать <span class="arr">→</span></span>
       </a>
       <a href="https://ecolog-info.ru/magazine-articles/show/541/" target="_blank" rel="noopener" class="pub-card">
@@ -2021,7 +2063,7 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
 </section>
 
 <!-- ============ 7. YOUTUBE / МЕДИА ============ -->
-<section class="section">
+<section class="section" id="podcast">
   <div class="wrap">
     <div class="youtube-grid">
       <div class="yt-left">
@@ -2037,17 +2079,20 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
           <span class="tag" data-en='<span class="hash">#</span> cities and new infrastructure'><span class="hash">#</span> города и новые инфраструктуры</span>
         </div>
         <p class="yt-note" data-en='No surface-level interviews. Only ideas that help you understand where the world is heading.'>Без поверхностных интервью. Только идеи, которые помогают понимать, куда движется мир.</p>
-        <a href="#" data-form-trigger="Подкаст" class="btn btn--yt" data-en='Become a podcast guest <span class="arr">→</span>'>Стать гостем подкаста <span class="arr">→</span></a>
+        <div class="yt-cta">
+          <a href="#" data-form-trigger="Подкаст" class="btn btn--yt" data-en='Become a podcast guest <span class="arr">→</span>'>Стать гостем подкаста <span class="arr">→</span></a>
+          <a href="https://www.youtube.com/@AnnaMinakova-esg" target="_blank" rel="noopener" class="btn btn--ghost" data-en='YouTube channel <span class="arr">→</span>'>YouTube канал <span class="arr">→</span></a>
+        </div>
       </div>
       <div class="yt-videos-wrap">
       <div class="yt-videos">
         <a href="https://youtu.be/IKqabMvJzNY?si=zNLsmWWypiOGsB7h" target="_blank" rel="noopener" class="yt-card img-placeholder" aria-label="Видео 1"><img src="assets/images/video-1.png" alt="Видео 1" loading="lazy"></a>
         <a href="https://youtu.be/wxVFgyt4FZY?si=I7RVmMfsZWqfBktE" target="_blank" rel="noopener" class="yt-card img-placeholder" aria-label="Видео 2"><img src="assets/images/video-2.png" alt="Видео 2" loading="lazy"></a>
-        <a href="https://youtu.be/wxVFgyt4FZY?si=I7RVmMfsZWqfBktE" target="_blank" rel="noopener" class="yt-card img-placeholder" aria-label="Видео 3"><img src="assets/images/video-3.png" alt="Видео 3" loading="lazy"></a>
-        <a href="https://youtu.be/laWt0FcrqNs?si=ZnWb8HNNQXTsTdAB" target="_blank" rel="noopener" class="yt-card img-placeholder" aria-label="Видео 4"><img src="assets/images/video-4.PNG" alt="Видео 4" loading="lazy"></a>
+        <a href="https://youtu.be/X_Yl6axNkzo?si=ulBm6bjtP84Hpw0O" target="_blank" rel="noopener" class="yt-card img-placeholder" aria-label="Видео 3"><img src="assets/images/video-3.png" alt="Видео 3" loading="lazy"></a>
+        <a href="https://youtu.be/TDONNAI1j4w?si=pxmmtHnRCNRoFdNI" target="_blank" rel="noopener" class="yt-card img-placeholder" aria-label="Видео 4"><img src="assets/images/video-4.PNG" alt="Видео 4" loading="lazy"></a>
       </div>
       <div class="yt-swipe-hint" aria-hidden="true">
-        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 1l6 6-6 6M1 7h16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="2" y1="12" x2="36" y2="12" stroke-linecap="round"/><path d="M28 5l8 7-8 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       </div>
     </div>
@@ -2165,7 +2210,7 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
 </section>
 
 <!-- ============ 11. METABUILD ============ -->
-<section class="section metabuild-section">
+<section class="section metabuild-section" id="metabuild">
   <div class="wrap">
     <div class="metabuild-grid">
       <div class="metabuild-img img-placeholder"><img src="assets/images/metabuild.png" alt="MetaBuild" loading="lazy"></div>
@@ -2233,6 +2278,7 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
     </div>
     <div class="footer-bottom">
       <span data-en='© 2026 Anna Minakova. Strategic Foresight. All rights reserved.'>© 2026 Анна Минакова. Strategic Foresight. Все права защищены.</span>
+      <span data-en='IE Minakova Anna Yuryevna · TIN 360701933957'>ИП Минакова Анна Юрьевна · ИНН 360701933957</span>
     </div>
   </div>
 </footer>
@@ -2667,6 +2713,21 @@ body.anim-ready .reveal.in{opacity:1;transform:none;}
       });
     }, { threshold: 0.4 });
     checkIO.observe(checkList);
+  }
+
+  // Keep the trust-logos marquee at a constant visual speed (px/sec)
+  // regardless of viewport width, instead of a fixed animation-duration
+  // that makes it look faster/slower on different screen sizes.
+  var trustTrack = document.querySelector('.trust-logos-track');
+  if (trustTrack) {
+    var PX_PER_SEC = 40; // reference speed; tune if needed
+    function setTrustSpeed(){
+      var halfWidth = trustTrack.scrollWidth / 2;
+      var duration = halfWidth / PX_PER_SEC;
+      trustTrack.style.animationDuration = duration + 's';
+    }
+    setTrustSpeed();
+    window.addEventListener('resize', setTrustSpeed);
   }
 
 })();

@@ -1393,8 +1393,7 @@ html[lang="en"] .ru-only { display: none; }
   .modeling-visual { aspect-ratio: 0.71; height: auto; min-height: 0; }
   .speaker-photo { height: auto; max-height: none; min-height: 0; aspect-ratio: 0.75; }
   .research-photo { min-height: 0; aspect-ratio: 1; }
-  .metabuild-img { height: auto; min-height: 0; aspect-ratio: 0.9; margin-top: clamp(24px, 6vw, 48px); }
-  .metabuild-img > img { transform: scale(1.2); }
+  .metabuild-img { height: auto; min-height: 0; aspect-ratio: 16/10; margin-top: clamp(28px, 7vw, 56px); }
   .facts-row { grid-template-columns: repeat(2, 1fr); }
   .hero-quote { position: static; max-width: none; margin-top: 24px; }
   .hero-strip .wrap { grid-template-columns: repeat(3,1fr); }
@@ -1606,8 +1605,8 @@ html[lang="en"] .ru-only { display: none; }
   /* books visual sits above/below cleanly */
   .books-visual { aspect-ratio: 4/3; }
   .books-visual > img { transform: scale(1.7); }
-  /* metabuild visual — larger on mobile */
-  .metabuild-img > img { transform: scale(1.45); }
+  /* metabuild visual — fits cleanly inside its own box on mobile (no overflow onto neighbours) */
+  .metabuild-img > img { transform: none; object-fit: cover; }
   /* speaker shots single column already; give them a sensible ratio */
   .shot { aspect-ratio: 4/3; }
   /* trust-stats: tighter on mobile, keep 2-col */
